@@ -14,9 +14,6 @@ const githubReducer: Reducer<GithubState> = (
   state: GithubState = initialState,
   action: SetMembersAction,
 ) => {
-  console.log('======================');
-  console.log(action);
-
   switch (action.type) {
   case constants.SET_MEMBERS:
     return {
