@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import github from './github';
+import githubReducer from './github';
 
-const todoApp = combineReducers({
-  github,
+const combinedReducer = combineReducers({
+  githubReducer,
 });
 
-export default todoApp;
+export default combinedReducer;

@@ -2,16 +2,21 @@ import { Reducer } from 'redux';
 
 import * as constants from '../actions/github';
 import { SetMembersAction } from '../actions/github';
-import Member from '../models/Member';
+import Member, { defaultMember } from '../models/Member';
 
-interface GithubState {
+export interface GithubState {
   members: Member[];
 }
 
-export const githubReducer: Reducer<GithubState> = (
-  state: GithubState,
+const initialState = { members: [defaultMember] };
+
+const githubReducer: Reducer<GithubState> = (
+  state: GithubState = initialState,
   action: SetMembersAction,
 ) => {
+  console.log('======================');
+  console.log(action);
+
   switch (action.type) {
   case constants.SET_MEMBERS:
     return {
@@ -21,3 +26,5 @@ export const githubReducer: Reducer<GithubState> = (
     return state;
   }
 };
+
+export default githubReducer;
