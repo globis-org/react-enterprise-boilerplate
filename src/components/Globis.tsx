@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-import { setMembers } from '../actions/github';
+import { fetchMembers } from '../actions/github';
 import Member from '../models/Member';
 import { dummyMember } from '../models/Member';
 import { State } from '../reducers';
@@ -12,7 +12,7 @@ interface StateProps {
 }
 
 interface DispatchProps {
-  setMembers(members: Member[]): void;
+  fetchMembers(members: Member[]): void;
 }
 
 type GlobisProps = StateProps & DispatchProps;
@@ -22,13 +22,13 @@ const mapStateToProps = (state: State) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<{}>) => ({
-  setMembers: (members: Member[]) => { dispatch(setMembers(members)); },
+  fetchMembers: () => { dispatch(fetchMembers()); },
 });
 
 @(connect(mapStateToProps, mapDispatchToProps) as any)
 export default class Globis extends React.Component<GlobisProps, {}> {
   public componentWillMount() {
-    this.props.setMembers([dummyMember]);
+    this.props.fetchMembers([dummyMember]);
   }
 
   public render() {

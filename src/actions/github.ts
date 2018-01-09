@@ -1,17 +1,40 @@
-import { Action } from 'redux';
+import { call, put } from 'redux-saga/effects';
 
 import Member from '../models/Member';
+import GitHubApi from '../services/github/api';
+import { AbstractAction } from './';
 
-export const SET_MEMBERS = 'SET_MEMBERS';
-export interface SetMembersAction extends Action {
-  members: Member[];
+export interface GitHubAction extends AbstractAction {
+  payload: {
+    members: Member[],
+  };
 }
 
-export const setMembers = (members: Member[]) => {
-  console.log(`####################`);
+// Set Members
+export const SET_MEMBERS = 'SET_MEMBERS';
+export const setMembers = (members: Member[]) => ({
+  type: SET_MEMBERS,
+  payload: { members },
+});
 
-  return {
-    type: SET_MEMBERS,
-    members,
-  };
-};
+// Fetch Members
+export const FETCH_MEMBERS = 'FETCH_MEMBERS';
+export function *fetchMembers () {
+  try {
+    const response = yield call(GitHubApi.getOrgMembers, 'globis-org');
+    const successAction: GitHubAction = {
+      type: FETCH_MEMBERS,
+      payload: { members: (response as Member[]) },
+      error: false,
+    };
+    yield put (successAction);
+
+  } catch (err) {
+    const failedAction: GitHubAction = {
+      type: FETCH_MEMBERS,
+      payload: { members: [] },
+      error: true,
+    };
+    yield put (failedAction);
+  }
+}
