@@ -24,10 +24,10 @@ export function *fetchMembers () {
     const response = yield call(GitHubApi.getOrgMembers, 'globis-org');
     const successAction: GitHubAction = {
       type: FETCH_MEMBERS,
-      payload: { members: (response as Member[]) },
+      payload: { members: (response.data as Member[]) },
       error: false,
     };
-    yield put (successAction);
+    yield put(successAction);
 
   } catch (err) {
     const failedAction: GitHubAction = {
