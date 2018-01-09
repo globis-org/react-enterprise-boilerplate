@@ -29,7 +29,7 @@
             "static-before-instance",
             "variables-before-functions"
         ],
-        "no-any": true,
+        "no-any": false,
         "no-arg": true,
         "no-bitwise": true,
         "no-console": [
@@ -61,7 +61,7 @@
             "check-open-brace",
             "check-whitespace"
         ],
-        "only-arrow-functions": true,
+        "only-arrow-functions": [true, "allow-named-functions"],
         "ordered-imports": true,
         "quotemark": [true, "single", "jsx-double"],
         "radix": true,

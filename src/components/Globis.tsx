@@ -7,10 +7,15 @@ import Member from '../models/Member';
 import { dummyMember } from '../models/Member';
 import { State } from '../reducers';
 
-interface GlobisProps {
+interface StateProps {
   members: Member[];
+}
+
+interface DispatchProps {
   setMembers(members: Member[]): void;
 }
+
+type GlobisProps = StateProps & DispatchProps;
 
 const mapStateToProps = (state: State) => ({
   members: state.github.members,
@@ -20,7 +25,8 @@ const mapDispatchToProps = (dispatch: Dispatch<{}>) => ({
   setMembers: (members: Member[]) => { dispatch(setMembers(members)); },
 });
 
-class Globis extends React.Component<GlobisProps, {}> {
+@(connect(mapStateToProps, mapDispatchToProps) as any)
+export default class Globis extends React.Component<GlobisProps, {}> {
   public componentWillMount() {
     this.props.setMembers([dummyMember]);
   }
@@ -40,5 +46,3 @@ class Globis extends React.Component<GlobisProps, {}> {
     );
   }
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(Globis);
