@@ -3,22 +3,18 @@ import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import createSagaMiddleware from 'redux-saga';
+import thunkMiddleware from 'redux-thunk';
 
-import { fetchMembers } from './actions/github';
+// import { fetchMembers } from './actions/github';
 import App from './App';
 import './index.css';
 import reducer from './reducers';
 import registerServiceWorker from './registerServiceWorker';
 
-const sagaMiddleware = createSagaMiddleware();
-
 const store = createStore(
   reducer,
-  composeWithDevTools(applyMiddleware(sagaMiddleware)),
+  composeWithDevTools(applyMiddleware(thunkMiddleware)),
 );
-
-sagaMiddleware.run(fetchMembers);
 
 ReactDOM.render(
   <Provider store={store}>

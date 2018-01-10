@@ -19,10 +19,6 @@ const githubReducer: Reducer<GithubState> = (
     return {
       members: action.payload.members,
     };
-  case constants.FETCH_MEMBERS:
-    return {
-      members: action.payload.members,
-    };
   default:
     return state;
   }

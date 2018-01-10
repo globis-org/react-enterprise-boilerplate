@@ -1,4 +1,4 @@
-import { call, put } from 'redux-saga/effects';
+import { ThunkAction } from 'redux-thunk';
 
 import Member from '../models/Member';
 import GitHubApi from '../services/github/api';
@@ -18,24 +18,16 @@ export const setMembers = (members: Member[]) => ({
 });
 
 // Fetch Members
-export const FETCH_MEMBERS = 'FETCH_MEMBERS';
-export function *fetchMembers () {
-  console.log('fetchmembers');
-  try {
-    const response = yield call(GitHubApi.getOrgMembers, 'globis-org');
-    const successAction: GitHubAction = {
-      type: FETCH_MEMBERS,
-      payload: { members: (response.data as Member[]) },
-      error: false,
-    };
-    yield put(successAction);
+export const fetchMembers = (): ThunkAction<void, {}, {}> =>
+async (dispatch) => {
+  let members: Member[] = [];
 
+  try {
+    const response = await GitHubApi.getOrgMembers('globis-org');
+    members = response.data;
   } catch (err) {
-    const failedAction: GitHubAction = {
-      type: FETCH_MEMBERS,
-      payload: { members: [] },
-      error: true,
-    };
-    yield put (failedAction);
+    console.log('error occurred!');
   }
-}
+  
+  dispatch(setMembers(members));
+};

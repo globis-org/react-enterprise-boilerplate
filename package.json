@@ -12,6 +12,7 @@
     "react-scripts-ts": "2.8.0",
     "redux": "^3.7.2",
     "redux-saga": "^0.16.0",
+    "redux-thunk": "^2.2.0",
     "styled-components": "^2.4.0"
   },
   "scripts": {

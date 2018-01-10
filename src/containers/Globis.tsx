@@ -1,17 +1,25 @@
 import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
 
 import { fetchMembers } from '../actions/github';
-import { State } from '../reducers';
 import GlobisComponent from '../components/Globis';
+import { State } from '../reducers';
 
-const mapStateToProps = (state: State) => ({ members: state.github.members });
+const mapStateToProps = (state: State) => ({
+  members: state.github.members,
+});
+
+const mapDispatchToProps = (dispatch: Dispatch<{}>) => (
+  bindActionCreators({ fetchMembers }, dispatch)
+);
 
 class GlobisContainer extends GlobisComponent {
   componentWillMount() {
-    console.log('componentwillmount');
-    console.log(this.props);
-    this.props.fetchMembers();
+    if (this.props.fetchMembers) {
+      console.log(`@@@@@@@@@@@`);
+      this.props.fetchMembers();
+    }
   }
 }
 
-export default connect(mapStateToProps, { fetchMembers })(GlobisContainer as any);
+export default connect(mapStateToProps, mapDispatchToProps)(GlobisContainer as any);

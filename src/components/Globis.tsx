@@ -4,13 +4,12 @@ import Member from '../models/Member';
 
 interface GlobisProps {
   members: Member[];
-  fetchMembers: Function;
+  fetchMembers?(): any; 
 }
 
 class GlobisComponent extends React.Component<GlobisProps, {}> {
   static defaultProps = {
     members: [],
-    fetchMembers: () => console.log('***'),
   };
 
   render() {
