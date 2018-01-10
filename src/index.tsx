@@ -8,13 +8,13 @@ import createSagaMiddleware from 'redux-saga';
 import { fetchMembers } from './actions/github';
 import App from './App';
 import './index.css';
-import combinedReducer from './reducers';
+import reducer from './reducers';
 import registerServiceWorker from './registerServiceWorker';
 
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
-  combinedReducer,
+  reducer,
   composeWithDevTools(applyMiddleware(sagaMiddleware)),
 );
 

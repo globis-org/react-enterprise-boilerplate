@@ -20,6 +20,7 @@ export const setMembers = (members: Member[]) => ({
 // Fetch Members
 export const FETCH_MEMBERS = 'FETCH_MEMBERS';
 export function *fetchMembers () {
+  console.log('fetchmembers');
   try {
     const response = yield call(GitHubApi.getOrgMembers, 'globis-org');
     const successAction: GitHubAction = {

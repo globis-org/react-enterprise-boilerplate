@@ -3,7 +3,7 @@ import { Route } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 
 import './App.css';
-import Globis from './components/Globis';
+import Globis from './containers/Globis';
 
 const logo = require('./logo.svg');
 

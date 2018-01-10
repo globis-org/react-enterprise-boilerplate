@@ -1,5 +1,8 @@
 {
-    "extends": ["tslint-react"],
+    "extends": [
+        "tslint-react",
+        "tslint-eslint-rules"
+    ],
     "rules": {
         "align": [
             true,
@@ -54,6 +57,10 @@
         "no-trailing-whitespace": false,
         "no-unused-expression": true,
         "no-use-before-declare": true,
+        "object-curly-spacing": [
+            true,
+            "always"
+        ],
         "one-line": [
             true,
             "check-catch",

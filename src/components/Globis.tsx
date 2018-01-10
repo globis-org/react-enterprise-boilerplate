@@ -1,38 +1,26 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
 
 import Member from '../models/Member';
-import { State } from '../reducers';
 
-interface StateProps {
+interface GlobisProps {
   members: Member[];
+  fetchMembers: Function;
 }
 
-interface DispatchProps {
-  fetchMembers(members: Member[]): void;
-}
+class GlobisComponent extends React.Component<GlobisProps, {}> {
+  static defaultProps = {
+    members: [],
+    fetchMembers: () => console.log('***'),
+  };
 
-type GlobisProps = StateProps & DispatchProps;
-
-const mapStateToProps = (state: State) => ({members: state.github.members});
-
-@(connect(mapStateToProps) as any)
-export default class Globis extends React.Component<GlobisProps, {}> {
-
-  public componentWillReceiveProps (nextProps: GlobisProps) {
-    if (this.props !== nextProps) {
-      this.setState({members: nextProps.members});
-    }
-  }
-
-  public render() {
+  render() {
     return (
       <div>
         <p>
           グロービスの社員を紹介します。
         </p>
         <ul>
-          {this.props.members.map((member) =>
+          {this.props.members.map((member: Member) =>
             <li key={member.id}>{member.login}</li>,
           )}
         </ul>
@@ -40,3 +28,5 @@ export default class Globis extends React.Component<GlobisProps, {}> {
     );
   }
 }
+
+export default GlobisComponent;
