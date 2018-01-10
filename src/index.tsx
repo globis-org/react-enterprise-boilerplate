@@ -8,16 +8,17 @@ import createSagaMiddleware from 'redux-saga';
 import { fetchMembers } from './actions/github';
 import App from './App';
 import './index.css';
-import reducer from './reducers';
+import combinedReducer from './reducers';
 import registerServiceWorker from './registerServiceWorker';
 
 const sagaMiddleware = createSagaMiddleware();
-sagaMiddleware.run(fetchMembers);
 
 const store = createStore(
-  reducer,
+  combinedReducer,
   composeWithDevTools(applyMiddleware(sagaMiddleware)),
 );
+
+sagaMiddleware.run(fetchMembers);
 
 ReactDOM.render(
   <Provider store={store}>

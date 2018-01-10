@@ -1,10 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
 
-import { fetchMembers } from '../actions/github';
 import Member from '../models/Member';
-import { dummyMember } from '../models/Member';
 import { State } from '../reducers';
 
 interface StateProps {
@@ -17,18 +14,15 @@ interface DispatchProps {
 
 type GlobisProps = StateProps & DispatchProps;
 
-const mapStateToProps = (state: State) => ({
-  members: state.github.members,
-});
+const mapStateToProps = (state: State) => ({members: state.github.members});
 
-const mapDispatchToProps = (dispatch: Dispatch<{}>) => ({
-  fetchMembers: () => { dispatch(fetchMembers()); },
-});
-
-@(connect(mapStateToProps, mapDispatchToProps) as any)
+@(connect(mapStateToProps) as any)
 export default class Globis extends React.Component<GlobisProps, {}> {
-  public componentWillMount() {
-    this.props.fetchMembers([dummyMember]);
+
+  public componentWillReceiveProps (nextProps: GlobisProps) {
+    if (this.props !== nextProps) {
+      this.setState({members: nextProps.members});
+    }
   }
 
   public render() {
