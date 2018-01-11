@@ -16,7 +16,6 @@ const mapDispatchToProps = (dispatch: Dispatch<{}>) => (
 class GlobisContainer extends GlobisComponent {
   componentWillMount() {
     if (this.props.fetchMembers) {
-      console.log(`@@@@@@@@@@@`);
       this.props.fetchMembers();
     }
   }

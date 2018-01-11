@@ -23,11 +23,12 @@ async (dispatch) => {
   let members: Member[] = [];
 
   try {
-    const response = await GitHubApi.getOrgMembers('globis-org');
+    const api = new GitHubApi();
+    const response = await api.getOrgMembers('globis-org');
     members = response.data;
   } catch (err) {
-    console.log('error occurred!');
+    console.log(err.message);
   }
-  
+
   dispatch(setMembers(members));
 };
