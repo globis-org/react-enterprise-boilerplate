@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
-import { fetchMembers } from '../actions/github';
+import { getOrgMembers } from '../actions/github';
 import GlobisComponent from '../components/Globis';
 import { State } from '../reducers';
 
@@ -10,13 +10,13 @@ const mapStateToProps = (state: State) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<{}>) => (
-  bindActionCreators({ fetchMembers }, dispatch)
+  bindActionCreators({ getOrgMembers }, dispatch)
 );
 
 class GlobisContainer extends GlobisComponent {
-  componentWillMount() {
-    if (this.props.fetchMembers) {
-      this.props.fetchMembers();
+  public componentWillMount() {
+    if (this.props.getOrgMembers) {
+      this.props.getOrgMembers();
     }
   }
 }

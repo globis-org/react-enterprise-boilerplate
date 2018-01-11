@@ -1,6 +1,8 @@
 {
     "extends": [
+        "tslint:latest",
         "tslint-react",
+        "tslint-config-prettier",
         "tslint-eslint-rules"
     ],
     "rules": {
@@ -17,7 +19,7 @@
             "check-space"
         ],
         "curly": true,
-        "eofline": false,
+        "eofline": true,
         "forin": true,
         "indent": [true, "spaces", 2],
         "interface-name": [true, "never-prefix"],
@@ -32,6 +34,7 @@
             "static-before-instance",
             "variables-before-functions"
         ],
+        "newline-before-return": true,
         "no-any": false,
         "no-arg": true,
         "no-bitwise": true,
@@ -61,6 +64,8 @@
             true,
             "always"
         ],
+        "object-literal-sort-keys": false,
+
         "one-line": [
             true,
             "check-catch",

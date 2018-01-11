@@ -1,4 +1,4 @@
-export default interface Member {
+export default interface User {
   login: string;
   id: number;
   avatar_url: string;
@@ -12,6 +12,7 @@ export default interface Member {
   subscriptions_url: string;
   organizations_url: string;
   repos_url: string;
+  score?: number;
   events_url: string;
   received_events_url: string;
   type: string;

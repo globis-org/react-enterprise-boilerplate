@@ -4,15 +4,15 @@ import Member from '../models/Member';
 
 interface GlobisProps {
   members: Member[];
-  fetchMembers?(): any; 
+  getOrgMembers?(): any; 
 }
 
 class GlobisComponent extends React.Component<GlobisProps, {}> {
-  static defaultProps = {
+  public static defaultProps = {
     members: [],
   };
 
-  render() {
+  public render() {
     return (
       <div>
         <p>

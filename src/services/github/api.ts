@@ -13,12 +13,21 @@ export default class GitHubApi {
   };
 
   constructor(config?: ApiConfig) {
-    this.API_CONFIG = Object.assign({}, config, this.DAFAULT_API_CONFIG);
+    this.API_CONFIG = { ...config, ...this.DAFAULT_API_CONFIG };
   }
 
-  getOrgMembers = async(orgName: string) => {
+  public getOrgMembers = async(orgName: string) => {
     const instance = axios.create(this.API_CONFIG);
     const response =  await instance.get(`/orgs/${orgName}/members`);
+
+    return response;
+  }
+
+  public searchUsers = async(query: string) => {
+    const escapedQuery = encodeURIComponent(query);
+    const instance = axios.create(this.API_CONFIG);
+    const response =  await instance.get(`/search/users?q=${escapedQuery}`);
+
     return response;
   }
 }

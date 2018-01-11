@@ -5,7 +5,7 @@ import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunkMiddleware from 'redux-thunk';
 
-// import { fetchMembers } from './actions/github';
+// import { getOrgMembers } from './actions/github';
 import App from './App';
 import './index.css';
 import reducer from './reducers';

@@ -1,8 +1,8 @@
-import Member from '../services/github/models/User';
+import User from '../services/github/models/User';
 
-export default Member;
+export default User;
 
-export const defaultMember: Member = {
+export const defaultUser: User = {
   login: '',
   id: 0,
   avatar_url: '',
@@ -16,13 +16,14 @@ export const defaultMember: Member = {
   subscriptions_url: '',
   organizations_url: '',
   repos_url: '',
+  score: 0,
   events_url: '',
   received_events_url: '',
   type: '',
   site_admin: false,
 };
 
-export const dummyMember: Member = {
+export const dummyUser: User = {
   login: 'グロービス太郎',
   id: 1,
   avatar_url: '',
@@ -36,6 +37,7 @@ export const dummyMember: Member = {
   subscriptions_url: '',
   organizations_url: '',
   repos_url: '',
+  score: 0,
   events_url: '',
   received_events_url: '',
   type: '',
