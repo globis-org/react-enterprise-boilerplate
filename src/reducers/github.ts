@@ -1,7 +1,7 @@
 import { Reducer } from 'redux';
 
 import { GitHubAction } from '../actions/github';
-import * as constants from '../actions/github';
+import * as constants from '../constants/github';
 import Member, { defaultMember } from '../models/Member';
 
 export interface GithubState {

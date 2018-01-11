@@ -1,5 +1,6 @@
 import { ThunkAction } from 'redux-thunk';
 
+import * as constants from '../constants/github';
 import Member from '../models/Member';
 import GitHubApi from '../services/github/api';
 import { AbstractAction } from './';
@@ -11,9 +12,8 @@ export interface GitHubAction extends AbstractAction {
 }
 
 // Set Members
-export const SET_MEMBERS = 'SET_MEMBERS';
 export const setMembers = (members: Member[]) => ({
-  type: SET_MEMBERS,
+  type: constants.SET_MEMBERS,
   payload: { members },
 });
 
