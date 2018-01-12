@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Route, Switch } from 'react-router';
 
 import './App.css';
+import Home from './components/Home';
 import Globis from './containers/Globis';
 import SearchUsers from './containers/SearchUsers';
 
@@ -17,6 +18,7 @@ class App extends React.Component {
           <h2>Welcome to React</h2>
         </div>
         <Switch>
+          <Route path="/" exact={true} component={Home} />
           <Route path="/globis" component={Globis} />
           <Route path="/search-users" component={SearchUsers} />
         </Switch>
