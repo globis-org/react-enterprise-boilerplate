@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { Route } from 'react-router';
-import { BrowserRouter } from 'react-router-dom';
+import { Route, Switch } from 'react-router';
 
 import './App.css';
 import Globis from './containers/Globis';
+import SearchUsers from './containers/SearchUsers';
 
 // const logo = require('./logo.svg');
 import * as logo from './logo.svg';
@@ -16,9 +16,10 @@ class App extends React.Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-        <BrowserRouter>
+        <Switch>
           <Route path="/globis" component={Globis} />
-        </BrowserRouter>
+          <Route path="/search-users" component={SearchUsers} />
+        </Switch>
       </div>
     );
   }
