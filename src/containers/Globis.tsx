@@ -21,4 +21,6 @@ class GlobisContainer extends GlobisComponent {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(GlobisContainer as any);
+export default connect(mapStateToProps, mapDispatchToProps)(
+  GlobisContainer as any,
+);

@@ -2,9 +2,10 @@
     "extends": [
         "tslint:latest",
         "tslint-react",
-        "tslint-config-prettier",
-        "tslint-eslint-rules"
+        "tslint-eslint-rules",
+        "tslint-config-prettier"
     ],
+    "rulesDirectory": ["tslint-plugin-prettier"],
     "rules": {
         "align": [
             true,

@@ -19,6 +19,7 @@
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
+    "tslint-check": "tslint-config-prettier-check ./tslint.json",
     "eject": "react-scripts-ts eject"
   },
   "devDependencies": {
@@ -34,6 +35,7 @@
     "redux-devtools": "^3.4.1",
     "redux-devtools-extension": "^2.13.2",
     "tslint-config-airbnb": "^5.4.2",
+    "tslint-config-prettier": "^1.6.0",
     "tslint-plugin-prettier": "^1.3.0"
   }
 }

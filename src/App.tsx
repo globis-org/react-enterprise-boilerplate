@@ -5,11 +5,11 @@ import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import Globis from './containers/Globis';
 
-const logo = require('./logo.svg');
+// const logo = require('./logo.svg');
+import * as logo from './logo.svg';
 
 class App extends React.Component {
-
-  render() {
+  public render() {
     return (
       <div className="App">
         <div className="App-header">
