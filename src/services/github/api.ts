@@ -18,7 +18,7 @@ export default class GitHubApi {
 
   public getOrgMembers = async(orgName: string) => {
     const instance = axios.create(this.API_CONFIG);
-    const response =  await instance.get(`/orgs/${orgName}/members`);
+    const response = await instance.get(`/orgs/${orgName}/members`);
 
     return response;
   }
@@ -26,7 +26,7 @@ export default class GitHubApi {
   public searchUsers = async(query: string) => {
     const escapedQuery = encodeURIComponent(query);
     const instance = axios.create(this.API_CONFIG);
-    const response =  await instance.get(`/search/users?q=${escapedQuery}`);
+    const response = await instance.get(`/search/users?q=${escapedQuery}`);
 
     return response;
   }
