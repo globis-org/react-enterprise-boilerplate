@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import UserListComponent, { UserListProps } from '../../components/common/UserList';
+import { UserList as UserListComponent, UserListProps } from '../../components';
 import User from '../../models/User';
 
 interface UserListState {

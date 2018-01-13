@@ -1,7 +1,6 @@
 import * as React from 'react';
 
-import UserList from '../../components/common/UserList';
-import UserSearchForm from '../../components/UserSearchForm';
+import { UserList, UserSearchForm } from '../../components';
 
 class SearchUsers extends React.Component {
   public render() {

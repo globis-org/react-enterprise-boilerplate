@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
 import { getOrgMembers } from '../actions/github';
-import GlobisComponent from '../components/Globis';
+import { GlobisComponent } from '../components';
 import { State } from '../reducers';
 
 const mapStateToProps = (state: State) => ({
