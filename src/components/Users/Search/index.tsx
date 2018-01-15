@@ -5,7 +5,7 @@ import UserSearchForm from './UserSearchForm';
 
 const UsersSearchComponent: React.SFC<{}> = () => (
   <div>
-    <UserSearchForm />
+    <UserSearchForm onSubmit={() => console.log('test')} />
     <UserList users={[]} />
   </div>
 );
