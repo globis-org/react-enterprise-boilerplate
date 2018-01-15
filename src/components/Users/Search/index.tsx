@@ -1,11 +1,11 @@
 import * as React from 'react';
 
 import UserList from '../../../components/common/UserList';
-import { InnerForm } from './UserSearchForm';
+import UserSearchForm from './UserSearchForm';
 
 const UsersSearchComponent: React.SFC<{}> = () => (
   <div>
-    <InnerForm onSubmit={() => console.log('test')} />
+    <UserSearchForm onSubmit={() => console.log('test')} />
     <UserList users={[]} />
   </div>
 );

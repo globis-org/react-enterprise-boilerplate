@@ -8,14 +8,14 @@ interface InnerFormValue {
 
 interface InnerFormProps {
   onSubmit: (values: InnerFormValue, meta: FormikBag<{}, InnerFormValue>) => void;
-  initialValues?: { login: 'test' };
+  initialValues?: { login: '' };
 }
 
 const UserSearchForm = withFormik<InnerFormProps, InnerFormValue>
 ({
-  mapPropsToValues: (props) =>
-  props.initialValues || {
-    login: 'aaa',
+  mapPropsToValues: ({initialValues}) =>
+  initialValues || {
+    login: '',
   },
   validationSchema: yup.object().shape({
     login: yup.string()
@@ -32,25 +32,25 @@ const UserSearchForm = withFormik<InnerFormProps, InnerFormValue>
       1000,
     );
   },
-});
-
-export const InnerForm = UserSearchForm((props) =>
-  <form onSubmit={props.handleSubmit}>
+})(({errors, touched, isSubmitting, handleChange, handleSubmit, values}) =>
+  <form onSubmit={handleSubmit}>
     <input
       id="login"
+      name="login"
+      onChange={handleChange}
       placeholder="ユーザー名"
       type="text"
-      value={props.values.login}
+      value={values.login}
     />
-    {props.touched.login && props.errors.login &&
-    <div>{props.errors.login}</div>}
+    {touched.login && errors.login &&
+    <div>{errors.login}</div>}
     <button
       type="submit"
-      disabled={props.isSubmitting}
+      disabled={isSubmitting}
     >
       送信
     </button>
-  </form>,
+  </form>
 );
 
-// export default UserSearchForm;
+export default UserSearchForm;
