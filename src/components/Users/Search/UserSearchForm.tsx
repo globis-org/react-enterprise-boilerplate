@@ -1,34 +1,22 @@
-import { FormikProps, withFormik } from 'formik';
+import { FormikBag, withFormik } from 'formik';
 import * as React from 'react';
 import * as yup from 'yup';
 
-interface FormValues {
+interface InnerFormValue {
   login: string;
 }
 
-const InnerForm: React.SFC<FormikProps<FormValues>> =
-  (props) =>
-(
-  <form onSubmit={props.handleSubmit}>
-    <input
-      id="login"
-      placeholder="ユーザー名"
-      type="text"
-      value={props.values.login}
-    />
-    {props.touched.login && props.errors.login &&
-    <div>{props.errors.login}</div>}
-    <button
-      type="submit"
-      disabled={props.isSubmitting}
-    >
-      送信
-    </button>
-  </form>
-);
+interface InnerFormProps {
+  onSubmit: (values: InnerFormValue, meta: FormikBag<{}, InnerFormValue>) => void;
+  initialValues?: { login: 'test' };
+}
 
-const UserSearchForm = withFormik<FormikProps<FormValues>, FormValues>({
-  mapPropsToValues: () => ({ login: '' }),
+const UserSearchForm = withFormik<InnerFormProps, InnerFormValue>
+({
+  mapPropsToValues: (props) =>
+  props.initialValues || {
+    login: 'aaa',
+  },
   validationSchema: yup.object().shape({
     login: yup.string()
       .max(16, '16文字以内で入力してください')
@@ -44,6 +32,25 @@ const UserSearchForm = withFormik<FormikProps<FormValues>, FormValues>({
       1000,
     );
   },
-})(InnerForm);
+});
 
-export default UserSearchForm;
+export const InnerForm = UserSearchForm((props) =>
+  <form onSubmit={props.handleSubmit}>
+    <input
+      id="login"
+      placeholder="ユーザー名"
+      type="text"
+      value={props.values.login}
+    />
+    {props.touched.login && props.errors.login &&
+    <div>{props.errors.login}</div>}
+    <button
+      type="submit"
+      disabled={props.isSubmitting}
+    >
+      送信
+    </button>
+  </form>,
+);
+
+// export default UserSearchForm;
