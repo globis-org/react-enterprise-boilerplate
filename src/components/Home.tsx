@@ -6,8 +6,8 @@ class SearchUsersContainer extends React.Component {
     return (
       <div>
         <ul>
-          <li><Link to={'/globis'}>グロービスのメンバー</Link></li>
-          <li><Link to={'/search-users'}>ユーザー検索</Link></li>
+          <li><Link to={'/globis/members'}>グロービスのメンバー</Link></li>
+          <li><Link to={'/users/search'}>ユーザー検索</Link></li>
         </ul>
       </div>
     );

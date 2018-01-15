@@ -9,6 +9,7 @@ import { AbstractAction } from './';
 export interface GitHubAction extends AbstractAction {
   payload: {
     members: Member[],
+    users: User[],
   };
 }
 
@@ -16,6 +17,12 @@ export interface GitHubAction extends AbstractAction {
 export const setMembers = (members: Member[]) => ({
   type: constants.SET_MEMBERS,
   payload: { members },
+});
+
+// Set Members
+export const setUsers = (users: User[]) => ({
+  type: constants.SET_USERS,
+  payload: { users },
 });
 
 // Get Organization Members
@@ -47,5 +54,5 @@ async (dispatch) => {
     console.log(err.message);
   }
 
-  dispatch(setMembers(users));
+  dispatch(setUsers(users));
 };

@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-import Member from '../models/Member';
+import Member from '../../../models/Member';
 
 interface GlobisProps {
   members: Member[];
-  getOrgMembers?(): any; 
+  getOrgMembers?(): any;
 }
 
 class GlobisComponent extends React.Component<GlobisProps, {}> {

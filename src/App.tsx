@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { Route, Switch } from 'react-router';
+import { Redirect, Route, Switch } from 'react-router';
 
 import './App.css';
 import Home from './components/Home';
-import Globis from './containers/Globis';
-import SearchUsers from './containers/SearchUsers';
+import SearchUsers from './components/Users/Search';
+import Globis from './containers/Globis/Members';
 
 // const logo = require('./logo.svg');
 import * as logo from './logo.svg';
@@ -19,8 +19,9 @@ class App extends React.Component {
         </div>
         <Switch>
           <Route path="/" exact={true} component={Home} />
-          <Route path="/globis" component={Globis} />
-          <Route path="/search-users" component={SearchUsers} />
+          <Route path="/globis/members" component={Globis} />
+          <Route path="/users/search" component={SearchUsers} />
+          <Redirect to="/" />
         </Switch>
       </div>
     );

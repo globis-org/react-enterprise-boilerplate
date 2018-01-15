@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import UserList from '../../components/common/UserList';
-import UserSearchForm from '../../components/UserSearchForm';
+import UserList from '../../../components/common/UserList';
+import UserSearchForm from './UserSearchForm';
 
-class SearchUsers extends React.Component {
+class UsersSearchComponent extends React.Component {
   public render() {
     return (
       <div>
@@ -14,4 +14,4 @@ class SearchUsers extends React.Component {
   }
 }
 
-export default SearchUsers;
+export default UsersSearchComponent;
