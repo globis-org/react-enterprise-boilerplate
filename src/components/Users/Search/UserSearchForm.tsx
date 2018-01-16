@@ -1,12 +1,17 @@
-import { FormikProps, withFormik } from 'formik';
+import { FormikValues, InjectedFormikProps, withFormik } from 'formik';
 import * as React from 'react';
-import * as yup from 'yup';
+import * as Yup from 'yup';
 
-interface FormValues {
+interface FormValues extends FormikValues {
   login: string;
 }
 
-const InnerForm: React.SFC<FormikProps<FormValues>> =
+interface FormProps {
+  login?: string;
+  onSubmit?: () => void;
+}
+
+const InnerForm: React.SFC<InjectedFormikProps<FormProps, FormValues>> =
   (props) =>
 (
   <form onSubmit={props.handleSubmit}>
@@ -14,6 +19,7 @@ const InnerForm: React.SFC<FormikProps<FormValues>> =
       id="login"
       placeholder="ユーザー名"
       type="text"
+      onChange={props.handleChange}
       value={props.values.login}
     />
     {props.touched.login && props.errors.login &&
@@ -27,10 +33,14 @@ const InnerForm: React.SFC<FormikProps<FormValues>> =
   </form>
 );
 
-const UserSearchForm = withFormik<FormikProps<FormValues>, FormValues>({
-  mapPropsToValues: () => ({ login: '' }),
-  validationSchema: yup.object().shape({
-    login: yup.string()
+const UserSearchForm = withFormik<FormProps, FormValues>({
+  mapPropsToValues: (props: FormProps) => ({
+    login: props.login || '',
+    onSubmit:
+      props.onSubmit ? props.onSubmit : () => {},
+  }),
+  validationSchema: Yup.object().shape({
+    login: Yup.string()
       .max(16, '16文字以内で入力してください')
       .required('ユーザー名を入力してください'),
     },
@@ -38,7 +48,9 @@ const UserSearchForm = withFormik<FormikProps<FormValues>, FormValues>({
   handleSubmit: (values, { setSubmitting }) => {
     setTimeout(
       () => {
+        console.log(values);
         alert(JSON.stringify(values, null, 2));
+        values.onSubmit();
         setSubmitting(false);
       },
       1000,

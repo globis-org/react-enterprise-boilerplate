@@ -12,7 +12,6 @@ export default interface User {
   subscriptions_url: string;
   organizations_url: string;
   repos_url: string;
-  score?: number;
   events_url: string;
   received_events_url: string;
   type: string;

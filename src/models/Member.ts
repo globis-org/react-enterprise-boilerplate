@@ -1,4 +1,4 @@
-import Member from '../services/github/models/User';
+import Member from '../services/github/models/Member';
 
 export default Member;
 
@@ -16,6 +16,7 @@ export const defaultMember: Member = {
   subscriptions_url: '',
   organizations_url: '',
   repos_url: '',
+  score: 0,
   events_url: '',
   received_events_url: '',
   type: '',
@@ -36,6 +37,7 @@ export const dummyMember: Member = {
   subscriptions_url: '',
   organizations_url: '',
   repos_url: '',
+  score: 0,
   events_url: '',
   received_events_url: '',
   type: '',
