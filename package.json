@@ -110,7 +110,7 @@
     ],
     "globals": {
       "ts-jest": {
-        "tsConfigFile": "/Users/i.yuka.ooka/Code/react-enterprise-boilerplate/tsconfig.test.json"
+        "tsConfigFile": "./tsconfig.test.json"
       }
     }
   },
