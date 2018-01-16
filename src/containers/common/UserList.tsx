@@ -15,16 +15,10 @@ interface UserListState {
 
 @(connect(mapStateToProps) as any)
 class UserListContainer extends React.Component<UserListProps, UserListState> {
-  public componentWillReceiveProps(nextProps: UserListProps) {
-    if (nextProps.users !== this.props.users) {
-      this.setState({ users: this.props.users });
-    }
-  }
-
   public render() {
     return (
       <div>
-        <UserListComponent users={this.state.users} />
+        <UserListComponent users={this.props.users} />
       </div>
     );
   }

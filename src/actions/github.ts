@@ -49,7 +49,7 @@ async (dispatch) => {
   try {
     const api = new GitHubApi();
     const response = await api.searchUsers(login);
-    users = response.data;
+    users = response.data.items;
   } catch (err) {
     console.log(err.message);
   }

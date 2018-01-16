@@ -17,7 +17,7 @@ class GlobisComponent extends React.Component<GlobisProps, {}> {
     return (
       <div>
         <Helmet>
-          <title>社員紹介｜グロービス</title>
+          <title>社員紹介</title>
         </Helmet>
         <p>
           グロービスの社員を紹介します。
@@ -26,6 +26,7 @@ class GlobisComponent extends React.Component<GlobisProps, {}> {
           {this.props.members.map((member: Member) =>
             <li key={member.id}>{member.login}</li>,
           )}
+          {this.props.members.map}
         </ul>
       </div>
     );

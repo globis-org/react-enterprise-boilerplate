@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
 
-import UserList from '../../../components/common/UserList';
+import UserList from '../../../containers/common/UserList';
 // import UserSearchForm from './UserSearchForm';
 import UserSearchForm from '../../../containers/Users/Search/UserSearchForm';
 
