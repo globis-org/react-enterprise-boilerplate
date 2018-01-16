@@ -1,8 +1,8 @@
 import { ThunkAction } from 'redux-thunk';
 
+import Member from 'models/Member';
+import User from 'models/User';
 import * as constants from '../constants/github';
-import Member from '../models/Member';
-import User from '../models/User';
 import GitHubApi from '../services/github/api';
 import { AbstractAction } from './';
 

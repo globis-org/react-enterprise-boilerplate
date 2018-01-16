@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
 
-import Member from '../../../models/Member';
+import Member from 'models/Member';
 
 interface GlobisProps {
   members: Member[];
