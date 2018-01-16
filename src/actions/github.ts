@@ -42,13 +42,13 @@ async (dispatch) => {
 };
 
 // Search Users
-export const searchUsers = (): ThunkAction<void, {}, {}> =>
+export const searchUsers = (login: string): ThunkAction<void, {}, {}> =>
 async (dispatch) => {
   let users: User[] = [];
 
   try {
     const api = new GitHubApi();
-    const response = await api.searchUsers('yuka');
+    const response = await api.searchUsers(login);
     users = response.data;
   } catch (err) {
     console.log(err.message);

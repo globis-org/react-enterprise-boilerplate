@@ -1,13 +1,15 @@
-import * as React from 'react';
 import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
+import { bindActionCreators, Dispatch } from 'redux';
 
 import { searchUsers } from '../../../actions/github';
 import UserSearchFormComponent from '../../../components/Users/Search/UserSearchForm';
 
-const mapDispatchToProps = (dispatch: Dispatch<{}>) => ({
-  onSubmit: () => dispatch(searchUsers()),
-});
+const mapDispatchToProps = (dispatch: Dispatch<{}>) => bindActionCreators(
+  {
+    onSubmit: searchUsers,
+  },
+  dispatch,
+);
 
 /*
 const popAlert = () => {
@@ -19,6 +21,6 @@ const UserSearchFormContainer: React.SFC<{}> = () => (
 );
 */
 
-const UserSearchFormContainer = connect(null, mapDispatchToProps)(UserSearchFormComponent);
+const UserSearchFormContainer = connect(null, mapDispatchToProps)(UserSearchFormComponent as any);
 
 export default UserSearchFormContainer;

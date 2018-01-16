@@ -8,7 +8,7 @@ interface FormValues extends FormikValues {
 
 interface FormProps {
   login?: string;
-  onSubmit?: () => void;
+  onSubmit?: (login: string) => void;
 }
 
 const InnerForm: React.SFC<InjectedFormikProps<FormProps, FormValues>> =
@@ -46,15 +46,8 @@ const UserSearchForm = withFormik<FormProps, FormValues>({
     },
   ),
   handleSubmit: (values, { setSubmitting }) => {
-    setTimeout(
-      () => {
-        console.log(values);
-        alert(JSON.stringify(values, null, 2));
-        values.onSubmit();
-        setSubmitting(false);
-      },
-      1000,
-    );
+    values.onSubmit(values.login);
+    setSubmitting(false);
   },
 })(InnerForm);
 
