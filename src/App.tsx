@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Helmet } from 'react-helmet';
 import { Redirect, Route, Switch } from 'react-router';
 
 import './App.css';
@@ -13,6 +14,7 @@ class App extends React.Component {
   public render() {
     return (
       <div className="App">
+        <Helmet htmlAttributes={{ lang: 'ja' }} />
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>

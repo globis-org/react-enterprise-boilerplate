@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Helmet } from 'react-helmet';
 
 import Member from '../../../models/Member';
 
@@ -15,6 +16,9 @@ class GlobisComponent extends React.Component<GlobisProps, {}> {
   public render() {
     return (
       <div>
+        <Helmet>
+          <title>社員紹介｜グロービス</title>
+        </Helmet>
         <p>
           グロービスの社員を紹介します。
         </p>
