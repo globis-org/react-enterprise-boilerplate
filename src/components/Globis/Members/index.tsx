@@ -26,7 +26,6 @@ class GlobisComponent extends React.Component<GlobisProps, {}> {
           {this.props.members.map((member: Member) =>
             <li key={member.id}>{member.login}</li>,
           )}
-          {this.props.members.map}
         </ul>
       </div>
     );
