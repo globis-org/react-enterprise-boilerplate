@@ -5,7 +5,7 @@ import { Member } from 'models';
 
 export interface GlobisProps {
   members: Member[];
-  getOrgMembers?(): any;
+  getOrganizationMembers?(): any;
 }
 
 const GlobisComponent: React.SFC<GlobisProps> = (props) => (
