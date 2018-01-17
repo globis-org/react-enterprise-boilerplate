@@ -1,4 +1,4 @@
-import User from '../services/github/models/User';
+import User from 'services/github/models/User';
 
 export default User;
 

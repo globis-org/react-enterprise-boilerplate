@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import User from '../../models/User';
+import User from 'models/User';
 
 export interface UserListProps {
   users: User[];

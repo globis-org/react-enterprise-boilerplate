@@ -2,10 +2,10 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import { Redirect, Route, Switch } from 'react-router';
 
+import Home from 'components/Home';
+import SearchUsers from 'components/Users/Search';
+import Globis from 'containers/Globis/Members';
 import './App.css';
-import Home from './components/Home';
-import SearchUsers from './components/Users/Search';
-import Globis from './containers/Globis/Members';
 
 // const logo = require('./logo.svg');
 import * as logo from './logo.svg';

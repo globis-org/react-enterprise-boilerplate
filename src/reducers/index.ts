@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+
 import github, { GithubState } from './github';
 
 export interface State {

@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
-import { searchUsers } from '../../../actions/github';
-import UserSearchFormComponent from '../../../components/Users/Search/UserSearchForm';
+import { searchUsers } from 'actions/github';
+import UserSearchFormComponent from 'components/Users/Search/UserSearchForm';
 
 const mapDispatchToProps = (dispatch: Dispatch<{}>) => bindActionCreators(
   {
