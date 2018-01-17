@@ -25,7 +25,7 @@ export const setUsers = (users: Model.User[]) => ({
 });
 
 // Get Organization Members
-export const getOrgMembers = (): ThunkAction<void, {}, {}> =>
+export const getOrganizationMembers = (): ThunkAction<void, {}, {}> =>
 async (dispatch) => {
   let members: Model.Member[] = [];
 
