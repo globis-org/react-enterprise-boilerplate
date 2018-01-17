@@ -1,4 +1,6 @@
 import axios from 'axios';
+import Member from './models/Member';
+import User from './models/User';
 
 interface ApiConfig {
   baseURL: string;
@@ -16,18 +18,44 @@ export default class GitHubApi {
     this.API_CONFIG = { ...config, ...this.DAFAULT_API_CONFIG };
   }
 
-  public getOrgMembers = async(orgName: string) => {
+  public getOrganizationMembers = async (
+    organizationName: string,
+  ) => {
     const instance = axios.create(this.API_CONFIG);
-    const response = await instance.get(`/orgs/${orgName}/members`);
 
-    return response;
+    try {
+      const response = await instance.get(`/orgs/${organizationName}/members`);
+
+      if (response.status !== 200) {
+        throw new Error('Server Error');
+      }
+
+      const members: Member[] = response.data;
+
+      return members;
+    } catch (err) {
+      throw err;
+    }
   }
 
-  public searchUsers = async(query: string) => {
+  public searchUsers = async(
+    query: string,
+  ) => {
     const escapedQuery = encodeURIComponent(query);
     const instance = axios.create(this.API_CONFIG);
-    const response = await instance.get(`/search/users?q=${escapedQuery}`);
 
-    return response;
+    try {
+      const response = await instance.get(`/search/users?q=${escapedQuery}`);
+
+      if (response.status !== 200) {
+        throw new Error('Server Error');
+      }
+
+      const users: User[] = response.data.items;
+
+      return users;
+    } catch (err) {
+      throw err;
+    }
   }
 }

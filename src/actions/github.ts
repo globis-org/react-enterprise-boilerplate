@@ -1,26 +1,25 @@
 import { ThunkAction } from 'redux-thunk';
 
 import * as constants from 'constants/github';
-import Member from 'models/Member';
-import User from 'models/User';
-import GitHubApi from 'services/github/api';
+import * as Model from 'models';
+import { GitHubApi } from 'services/github';
 import { AbstractAction } from './';
 
 export interface GitHubAction extends AbstractAction {
   payload: {
-    members: Member[],
-    users: User[],
+    members: Model.Member[],
+    users: Model.User[],
   };
 }
 
 // Set Members
-export const setMembers = (members: Member[]) => ({
+export const setMembers = (members: Model.Member[]) => ({
   type: constants.SET_MEMBERS,
   payload: { members },
 });
 
 // Set Members
-export const setUsers = (users: User[]) => ({
+export const setUsers = (users: Model.User[]) => ({
   type: constants.SET_USERS,
   payload: { users },
 });
@@ -28,12 +27,11 @@ export const setUsers = (users: User[]) => ({
 // Get Organization Members
 export const getOrgMembers = (): ThunkAction<void, {}, {}> =>
 async (dispatch) => {
-  let members: Member[] = [];
+  let members: Model.Member[] = [];
 
   try {
     const api = new GitHubApi();
-    const response = await api.getOrgMembers('globis-org');
-    members = response.data;
+    members = await api.getOrganizationMembers('globis-org');
   } catch (err) {
     console.log(err.message);
   }
@@ -44,12 +42,11 @@ async (dispatch) => {
 // Search Users
 export const searchUsers = (login: string): ThunkAction<void, {}, {}> =>
 async (dispatch) => {
-  let users: User[] = [];
+  let users: Model.User[] = [];
 
   try {
     const api = new GitHubApi();
-    const response = await api.searchUsers(login);
-    users = response.data.items;
+    users = await api.searchUsers(login);
   } catch (err) {
     console.log(err.message);
   }

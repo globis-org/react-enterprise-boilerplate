@@ -2,12 +2,13 @@ import { Reducer } from 'redux';
 
 import { GitHubAction } from 'actions/github';
 import * as constants from 'constants/github';
-import Member, { defaultMember } from 'models/Member';
-import User, { defaultUser } from 'models/User';
+import * as Model from 'models';
+import { defaultMember } from 'models/Member';
+import { defaultUser } from 'models/User';
 
 export interface GithubState {
-  members: Member[];
-  users: User[];
+  members: Model.Member[];
+  users: Model.User[];
 }
 
 const initialState = {

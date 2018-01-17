@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import UserListComponent, { UserListProps } from 'components/common/UserList';
-import User from 'models/User';
+import { User } from 'models';
 import { State } from 'reducers';
 
 const mapStateToProps = (state: State) => ({

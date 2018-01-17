@@ -1,6 +1,6 @@
-import User from 'services/github/models/User';
+import { User } from 'services/github';
 
-export default User;
+export { User };
 
 export const defaultUser: User = {
   login: '',
