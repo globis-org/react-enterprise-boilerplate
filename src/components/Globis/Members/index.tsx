@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet';
 
 import { Member } from 'models';
+import pages from 'pages';
 
 export interface GlobisProps {
   members: Member[];
@@ -11,7 +12,7 @@ export interface GlobisProps {
 const GlobisComponent: React.SFC<GlobisProps> = (props) => (
   <div>
   <Helmet>
-    <title>社員紹介</title>
+    <title>{pages.globisMembers.title}</title>
   </Helmet>
   <p>
     グロービスの社員を紹介します。
