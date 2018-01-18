@@ -2,3 +2,7 @@
   text-align: center;
   margin: 20px 0;
 }
+
+.UserSearchForm .ui.input{
+  margin-right: 10px;
+}

@@ -1,6 +1,6 @@
 import { FormikValues, InjectedFormikProps, withFormik } from 'formik';
 import * as React from 'react';
-import { Button, Input } from 'semantic-ui-react';
+import { Button, Input, Message } from 'semantic-ui-react';
 import * as Yup from 'yup';
 
 import './UserSearchForm.css';
@@ -25,15 +25,15 @@ const InnerForm: React.SFC<InjectedFormikProps<FormProps, FormValues>> =
       onChange={props.handleChange}
       value={props.values.login}
     />
-    {props.touched.login && props.errors.login &&
-    <div>{props.errors.login}</div>}
     <Button
       type="submit"
-      color="green"
       disabled={props.isSubmitting}
+      primary
     >
-      送信
+      検索
     </Button>
+    {props.touched.login && props.errors.login &&
+    <Message color="red">{props.errors.login}</Message>}
   </form>
 );
 
