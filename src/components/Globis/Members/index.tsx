@@ -1,12 +1,11 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
-import { translate } from 'react-i18next';
+import { InjectedTranslateProps, translate } from 'react-i18next';
 
 import { Member } from 'models';
 
-export interface GlobisProps {
+export interface GlobisProps extends InjectedTranslateProps {
   members: Member[];
-  t?: any;
   getOrganizationMembers?(): any;
 }
 
