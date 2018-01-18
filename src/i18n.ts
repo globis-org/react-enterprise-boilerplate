@@ -7,7 +7,8 @@ const i18n = i18next
   .use(LanguageDetector)
   .init({
     fallbackLng: 'ja',
-    whitelist: ['ja'],
+    whitelist: ['en', 'ja'],
+    nonExplicitWhitelist: true,
     ns: ['common'],
     defaultNS: 'common',
     debug: true,
