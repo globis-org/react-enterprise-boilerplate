@@ -1,6 +1,9 @@
 import { FormikValues, InjectedFormikProps, withFormik } from 'formik';
 import * as React from 'react';
+import { Button, Input } from 'semantic-ui-react';
 import * as Yup from 'yup';
+
+import './UserSearchForm.css';
 
 interface FormValues extends FormikValues {
   login: string;
@@ -14,8 +17,8 @@ interface FormProps {
 const InnerForm: React.SFC<InjectedFormikProps<FormProps, FormValues>> =
   (props) =>
 (
-  <form onSubmit={props.handleSubmit}>
-    <input
+  <form className="UserSearchForm" onSubmit={props.handleSubmit}>
+    <Input
       id="login"
       placeholder="ユーザー名"
       type="text"
@@ -24,12 +27,13 @@ const InnerForm: React.SFC<InjectedFormikProps<FormProps, FormValues>> =
     />
     {props.touched.login && props.errors.login &&
     <div>{props.errors.login}</div>}
-    <button
+    <Button
       type="submit"
+      color="green"
       disabled={props.isSubmitting}
     >
       送信
-    </button>
+    </Button>
   </form>
 );
 

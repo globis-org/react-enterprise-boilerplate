@@ -1,5 +1,3 @@
-import User from './User';
+import Member from './User';
 
-export default interface Member extends User {
-  score: number;
-}
+export default Member;

@@ -6,9 +6,9 @@ import { Redirect, Route, Switch } from 'react-router';
 import Home from 'components/Home';
 import UsersSearch from 'components/Users/Search';
 import Globis from 'containers/Globis/Members';
-import './App.css';
 import pages from './pages';
 
+import './App.css';
 import * as logo from './logo.svg';
 
 class App extends React.Component<InjectedTranslateProps> {
@@ -16,7 +16,7 @@ class App extends React.Component<InjectedTranslateProps> {
     const { t } = this.props;
 
     return (
-      <div className="App">
+      <div>
         <Helmet htmlAttributes={{ lang: 'ja' }}>
           <title>{t('pages.top.title')}</title>
         </Helmet>

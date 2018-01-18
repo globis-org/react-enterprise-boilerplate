@@ -6,6 +6,7 @@ import { Router } from 'react-router-dom';
 import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunkMiddleware from 'redux-thunk';
+import 'semantic-ui-css/semantic.min.css';
 
 import { I18nextProvider } from 'react-i18next';
 import reducer from 'reducers';

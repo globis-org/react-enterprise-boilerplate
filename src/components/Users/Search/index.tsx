@@ -11,7 +11,7 @@ const UsersSearchComponent: React.SFC<InjectedTranslateProps> = ({ t }) => (
       <title>{t('pages.usersSearch.title')}</title>
     </Helmet>
     <UserSearchForm />
-    <UserList users={[]} />
+    <UserList />
   </div>
 );
 
