@@ -6,7 +6,6 @@ import { Redirect, Route, Switch } from 'react-router';
 import Home from 'components/Home';
 import SearchUsers from 'components/Users/Search';
 import Globis from 'containers/Globis/Members';
-import pages from 'pages';
 import './App.css';
 
 import * as logo from './logo.svg';
@@ -16,20 +15,19 @@ interface AppProps {
 }
 
 @(translate as any)(['common'], { wait: true })
-class App extends React.Component<AppProps, {}> {
+class App extends React.Component<AppProps> {
   public render() {
     const { t } = this.props;
-    console.log(t('introduceMembers'));
 
     return (
       <div className="App">
         <Helmet htmlAttributes={{ lang: 'ja' }}>
-          <title>{pages.top.title}</title>
+          <title>{t('pages.top.title')}</title>
         </Helmet>
 
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <h2>{t('pages.top.title')}</h2>
         </div>
         <Switch>
           <Route path="/" exact={true} component={Home} />
@@ -42,4 +40,4 @@ class App extends React.Component<AppProps, {}> {
   }
 }
 
-export default translate(['common'])(App);
+export default translate()(App);
