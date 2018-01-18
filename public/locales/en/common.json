@@ -1,0 +1,15 @@
+{
+  "pages": {
+    "top": {
+      "title": "React Enterprize Boilerplate"
+    },
+    "globisMembers": {
+      "title": "Globis Members"
+    },
+    "usersSearch": {
+      "title": "User Search"
+    }
+  },
+  "introduceMembers": "Here are developer members of Globis",
+  "submit": "Submit"
+}
