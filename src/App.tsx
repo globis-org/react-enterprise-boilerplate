@@ -11,10 +11,15 @@ import './App.css';
 
 import * as logo from './logo.svg';
 
+interface AppProps {
+  t?: any;
+}
+
 @(translate as any)(['view', 'nav'], { wait: true })
-class App extends React.Component {
+class App extends React.Component<AppProps, {}> {
   public render() {
     const { t } = this.props;
+    console.log(t('introduceMembers'));
 
     return (
       <div className="App">

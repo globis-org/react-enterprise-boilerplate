@@ -20,13 +20,13 @@ const store = createStore(
 );
 
 ReactDOM.render(
-  <I18nextProvider i18n={i18n}>
-    <Provider store={store}>
+  <Provider store={store}>
+    <I18nextProvider i18n={i18n}>
       <Router history={createHistory()}>
         <App />
       </Router>
-    </Provider>
-  </I18nextProvider>,
+    </I18nextProvider>
+  </Provider>,
   document.getElementById('root') as HTMLElement,
 );
 
