@@ -14,7 +14,6 @@ interface AppProps {
   t?: any;
 }
 
-@(translate as any)(['common'], { wait: true })
 class App extends React.Component<AppProps> {
   public render() {
     const { t } = this.props;

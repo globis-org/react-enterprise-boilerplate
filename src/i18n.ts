@@ -12,7 +12,10 @@ const i18n = i18next
     defaultNS: 'common',
     debug: true,
     backend: {
-      loadPath: '../locales/{{lng}}/{{ns}}.json',
+      loadPath: '/locales/{{lng}}/{{ns}}.json',
+    },
+    react: {
+      wait: true,  // true: wait for loaded in every translated hoc
     },
   });
 

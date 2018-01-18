@@ -1,24 +1,23 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
+import { translate } from 'react-i18next';
 
 import { Member } from 'models';
-import pages from 'pages';
 
 export interface GlobisProps {
   members: Member[];
+  t?: any;
   getOrganizationMembers?(): any;
 }
 
-const GlobisComponent: React.SFC<GlobisProps> = (props) => (
+const GlobisComponent: React.SFC<GlobisProps> = ({ t, members }) => (
   <div>
   <Helmet>
-    <title>{pages.globisMembers.title}</title>
+    <title>{t('pages.globisMembers.title')}</title>
   </Helmet>
-  <p>
-    グロービスの社員を紹介します。
-  </p>
+  <p>{t('introduceMembers')}</p>
   <ul>
-    {props.members.map((member: Member) =>
+    {members.map((member: Member) =>
       <li key={member.id}>{member.login}</li>,
     )}
   </ul>
@@ -29,4 +28,4 @@ GlobisComponent.defaultProps = {
   members: [],
 };
 
-export default GlobisComponent;
+export default translate()(GlobisComponent);
