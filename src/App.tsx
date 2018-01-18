@@ -11,29 +11,29 @@ import pages from './pages';
 import './App.css';
 import * as logo from './logo.svg';
 
-class App extends React.Component<InjectedTranslateProps> {
-  public render() {
-    const { t } = this.props;
+type AppProps = {} & InjectedTranslateProps;
 
-    return (
-      <div>
-        <Helmet htmlAttributes={{ lang: 'ja' }}>
-          <title>{t('pages.top.title')}</title>
-        </Helmet>
+const App: React.SFC<AppProps> = (props) => {
+  const { t } = props;
 
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>{t('pages.top.title')}</h2>
-        </header>
-        <Switch>
-          <Route path="/" exact={true} component={Home} />
-          <Route path={pages.globisMembers.path} component={Globis} />
-          <Route path={pages.usersSearch.path} component={UsersSearch} />
-          <Redirect to="/" />
-        </Switch>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <Helmet htmlAttributes={{ lang: 'ja' }}>
+        <title>{t('pages.top.title')}</title>
+      </Helmet>
+
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <h2>{t('pages.top.title')}</h2>
+      </header>
+      <Switch>
+        <Route path="/" exact={true} component={Home} />
+        <Route path={pages.globisMembers.path} component={Globis} />
+        <Route path={pages.usersSearch.path} component={UsersSearch} />
+        <Redirect to="/" />
+      </Switch>
+    </div>
+  );
+};
 
 export default translate()(App);
