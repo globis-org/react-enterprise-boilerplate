@@ -1,7 +1,10 @@
 {
-  "name": "my-app",
-  "version": "0.1.0",
-  "private": true,
+  "name": "react-enterprise-boilerplate",
+  "description": "Boilerplate for enterprise application with React and its ecosystem",
+  "version": "0.2.0",
+  "license": "MIT",
+  "author": "Yuka O'oka <i.yuka.ooka@globis.co.jp>",
+  "repository": "globis-org/react-enterprise-boilerplate",
   "dependencies": {
     "@types/prop-types": "^15.5.2",
     "autoprefixer": "7.1.2",
