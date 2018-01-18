@@ -21,10 +21,10 @@ class App extends React.Component<InjectedTranslateProps> {
           <title>{t('pages.top.title')}</title>
         </Helmet>
 
-        <div className="App-header">
+        <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>{t('pages.top.title')}</h2>
-        </div>
+        </header>
         <Switch>
           <Route path="/" exact={true} component={Home} />
           <Route path={pages.globisMembers.path} component={Globis} />
