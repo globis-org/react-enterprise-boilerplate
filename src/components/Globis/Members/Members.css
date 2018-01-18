@@ -1,0 +1,11 @@
+.Members {
+  padding: 0 10px;
+}
+
+.Members .ui.block.header{
+  margin: 20px 0;
+}
+
+.Members p {
+  text-align: center;
+}
