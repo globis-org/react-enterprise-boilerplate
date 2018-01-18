@@ -15,7 +15,7 @@ interface AppProps {
   t?: any;
 }
 
-@(translate as any)(['view', 'nav'], { wait: true })
+@(translate as any)(['common'], { wait: true })
 class App extends React.Component<AppProps, {}> {
   public render() {
     const { t } = this.props;
@@ -42,4 +42,4 @@ class App extends React.Component<AppProps, {}> {
   }
 }
 
-export default translate(['view', 'nav'], { wait: true })(App);
+export default translate(['common'])(App);
