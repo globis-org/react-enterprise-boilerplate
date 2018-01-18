@@ -3,8 +3,6 @@ import { Reducer } from 'redux';
 import { GitHubAction } from 'actions/github';
 import * as constants from 'constants/github';
 import * as Model from 'models';
-import { defaultMember } from 'models/Member';
-import { defaultUser } from 'models/User';
 
 export interface GithubState {
   members: Model.Member[];
@@ -12,8 +10,8 @@ export interface GithubState {
 }
 
 const initialState = {
-  members: [defaultMember],
-  users: [defaultUser],
+  members: [],
+  users: [],
  };
 
 const githubReducer: Reducer<GithubState> = (

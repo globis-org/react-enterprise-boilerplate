@@ -4,9 +4,10 @@ import { InjectedTranslateProps, translate } from 'react-i18next';
 import { Redirect, Route, Switch } from 'react-router';
 
 import Home from 'components/Home';
-import SearchUsers from 'components/Users/Search';
+import UsersSearch from 'components/Users/Search';
 import Globis from 'containers/Globis/Members';
 import './App.css';
+import pages from './pages';
 
 import * as logo from './logo.svg';
 
@@ -26,8 +27,8 @@ class App extends React.Component<InjectedTranslateProps> {
         </div>
         <Switch>
           <Route path="/" exact={true} component={Home} />
-          <Route path="/globis/members" component={Globis} />
-          <Route path="/users/search" component={SearchUsers} />
+          <Route path={pages.globisMembers.path} component={Globis} />
+          <Route path={pages.usersSearch.path} component={UsersSearch} />
           <Redirect to="/" />
         </Switch>
       </div>
