@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
-import { translate } from 'react-i18next';
+import { InjectedTranslateProps, translate } from 'react-i18next';
 import { Redirect, Route, Switch } from 'react-router';
 
 import Home from 'components/Home';
@@ -10,11 +10,7 @@ import './App.css';
 
 import * as logo from './logo.svg';
 
-interface AppProps {
-  t?: any;
-}
-
-class App extends React.Component<AppProps> {
+class App extends React.Component<InjectedTranslateProps> {
   public render() {
     const { t } = this.props;
 
