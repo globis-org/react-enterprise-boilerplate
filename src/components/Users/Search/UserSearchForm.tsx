@@ -28,7 +28,7 @@ const InnerForm: React.SFC<InjectedFormikProps<FormProps, FormValues>> =
     <Button
       type="submit"
       disabled={props.isSubmitting}
-      primary
+      primary={true}
     >
       検索
     </Button>

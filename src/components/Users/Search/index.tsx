@@ -15,7 +15,7 @@ const UsersSearchComponent: React.SFC<UsersSearchComponentProps> = ({ t }) => (
     <Helmet>
       <title>{t('pages.usersSearch.title')}</title>
     </Helmet>
-    <Header as="h3" block>{t('pages.usersSearch.title')}</Header>
+    <Header as="h3" block={true}>{t('pages.usersSearch.title')}</Header>
     <UserSearchForm />
     <UserList />
   </div>

@@ -12,12 +12,12 @@ export interface GlobisProps extends InjectedTranslateProps {
   getOrganizationMembers?(): any;
 }
 
-const GlobisComponent: React.SFC<GlobisProps> = ({ t, members }) => (
+const GlobisMembersComponent: React.SFC<GlobisProps> = ({ t, members }) => (
   <div className="Members">
     <Helmet>
       <title>{t('pages.globisMembers.title')}</title>
     </Helmet>
-    <Header as="h3" block>{t('pages.globisMembers.title')}</Header>
+    <Header as="h3" block={true}>{t('pages.globisMembers.title')}</Header>
     <p>{t('introduceMembers')}</p>
     <Card.Group>
       {members.map((member: Member) =>
@@ -36,8 +36,8 @@ const GlobisComponent: React.SFC<GlobisProps> = ({ t, members }) => (
   </div>
 );
 
-GlobisComponent.defaultProps = {
+GlobisMembersComponent.defaultProps = {
   members: [],
 };
 
-export default translate()(GlobisComponent);
+export default translate()(GlobisMembersComponent);
