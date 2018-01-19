@@ -1,7 +1,7 @@
 {
   "name": "react-enterprise-boilerplate",
   "description": "Boilerplate for enterprise application with React and its ecosystem",
-  "version": "0.2.0",
+  "version": "0.1.0",
   "license": "MIT",
   "author": "Yuka O'oka <i.yuka.ooka@globis.co.jp>",
   "repository": "globis-org/react-enterprise-boilerplate",
@@ -93,6 +93,7 @@
     "@types/storybook__addon-notes": "^3.3.0",
     "@types/storybook__react": "^3.0.6",
     "@types/yup": "^0.23.1",
+    "awesome-typescript-loader": "^3.4.1",
     "prettier": "^1.9.2",
     "redux-devtools": "^3.4.1",
     "storybook-addon-figma": "^0.1.0",

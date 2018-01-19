@@ -149,7 +149,7 @@ module.exports = {
           // Compile .tsx?
           {
             test: /\.(ts|tsx)$/,
-            include: [paths.appSrc, paths.storiesSrc],
+            include: paths.appSrc,
             loader: require.resolve('ts-loader'),
           },
           // "postcss" loader applies autoprefixer to our CSS.
