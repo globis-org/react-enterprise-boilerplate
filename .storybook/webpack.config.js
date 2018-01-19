@@ -18,17 +18,6 @@ module.exports = {
         use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
         include: paths.appSrc,
       },
-      {
-        oneOf: [
-          {
-            exclude: /\.json$/,
-            loader: require.resolve('file-loader'),
-            options: {
-              name: 'static/media/[name].[hash:8].[ext]',
-            },
-          },
-        ],
-      },
     ],
   },
   resolve: {
