@@ -20,6 +20,7 @@
     "html-webpack-plugin": "2.29.0",
     "i18next": "^10.2.2",
     "i18next-browser-languagedetector": "^2.1.0",
+    "i18next-locize-backend": "^1.2.1",
     "i18next-xhr-backend": "^1.5.1",
     "jest": "20.0.4",
     "object-assign": "4.1.1",
