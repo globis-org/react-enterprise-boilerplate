@@ -34,7 +34,6 @@ const locize = i18next
   .use(I18nextProvider)
   .init({
     backend: {
-      projectId: 'e060290d-9298-4daa-8c15-50e9dd3f0692',
       referenceLng: 'ja',
       version: 'latest',
     },
