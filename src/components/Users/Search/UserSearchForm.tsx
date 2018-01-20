@@ -14,9 +14,9 @@ interface FormProps {
   onSubmit?: (login: string) => void;
 }
 
-const InnerForm: React.SFC<InjectedFormikProps<FormProps, FormValues>> =
-  (props) =>
-(
+const InnerForm: React.SFC<InjectedFormikProps<FormProps, FormValues>> = (
+  props,
+) => (
   <form className="UserSearchForm" onSubmit={props.handleSubmit}>
     <Input
       id="login"

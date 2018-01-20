@@ -11,7 +11,7 @@ import { Member } from '../models';
 const members: Member[] = [];
 
 storiesOf('Globis Members', module)
-  .addDecorator(story => (
+  .addDecorator((story) => (
     <I18nextProvider i18n={i18n}>
       {story() as JSX.Element}
     </I18nextProvider>

@@ -18,7 +18,7 @@ const GlobisMembersComponent: React.SFC<GlobisProps> = ({ t, members }) => (
       <title>{t('pages.globisMembers.title')}</title>
     </Helmet>
     <Header as="h3" block={true}>{t('pages.globisMembers.title')}</Header>
-    <p>{t('introduceMembers')}</p>
+    <p>{t('text.introduceMembers')}</p>
     <Card.Group>
       {members.map((member: Member) =>
         <Card

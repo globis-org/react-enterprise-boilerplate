@@ -1,28 +1,19 @@
+const defaultConfig = require('@storybook/react/dist/server/config/defaults/webpack.config.js');
 const paths = require('../config/paths');
 
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.(ts|tsx)?$/,
-        loader: 'ts-loader',
-        include: paths.appSrc,
-      },
-      {
-        test: /\.(jpg|png|svg)$/,
-        loader: 'file-loader',
-        include: paths.appSrc,
-      },
-      {
-        test: /\.css$/,
-        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
-        include: paths.appSrc,
-      },
-    ],
-  },
-  resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.json', '.jsx'],
-    enforceExtension: false
-  }
-};
+module.exports = (baseConfig, env) => {
+  const config = defaultConfig(baseConfig, env);
+  config.module.rules.push(
+    {
+      test: /\.(ts|tsx)?$/,
+      loader: 'ts-loader',
+      include: paths.appSrc,
+    },
+  );
+  config.resolve.extensions.push(
+    '.ts',
+    '.tsx',
+  );
 
+  return config;
+}
