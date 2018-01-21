@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+import { removeTrailingSlash } from 'utils/urlHandler';
 import { Member } from './models/Member';
 import { User } from './models/User';
 
@@ -16,7 +17,14 @@ export class GitHubApi {
   };
 
   constructor(config?: ApiConfig) {
-    this.API_CONFIG = { ...config, ...this.DAFAULT_API_CONFIG };
+    const mergedConfig = {
+      ...config,
+      ...this.DAFAULT_API_CONFIG,
+    };
+    this.API_CONFIG = {
+      ...mergedConfig,
+      baseURL: removeTrailingSlash(mergedConfig.baseURL),
+    };
   }
 
   public getOrganizationMembers = async (
