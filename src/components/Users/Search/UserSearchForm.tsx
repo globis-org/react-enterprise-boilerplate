@@ -4,8 +4,8 @@ import { compose, pure } from 'recompose';
 import { Button, Input, Message } from 'semantic-ui-react';
 import * as Yup from 'yup';
 
-import { translate } from 'react-i18next';
-import { InjectedTranslateProps } from 'react-i18next/src/props';
+import { InjectedTranslateProps, translate } from 'react-i18next';
+import i18n from '../../../i18n';
 import './UserSearchForm.css';
 
 interface Values extends FormikValues {
@@ -25,7 +25,7 @@ const InnerForm: React.SFC<InnerFormProps> = (
   <form className="UserSearchForm" onSubmit={props.handleSubmit}>
     <Input
       id="login"
-      placeholder={props.t('ui.username')}
+      placeholder={props.t('ui.label.username')}
       type="text"
       onChange={props.handleChange}
       value={props.values.login}
@@ -35,7 +35,7 @@ const InnerForm: React.SFC<InnerFormProps> = (
       disabled={props.isSubmitting}
       primary={true}
     >
-      {props.t('ui.search')}
+      {props.t('ui.label.search')}
     </Button>
     {props.touched.login && props.errors.login &&
     <Message color="red">{props.errors.login}</Message>}
@@ -51,8 +51,8 @@ const UserSearchForm = compose(
     }),
     validationSchema: Yup.object().shape({
       login: Yup.string()
-        .max(16, '16文字以内で入力してください')
-        .required('ユーザー名を入力してください'),
+        .max(16, i18n.t('ui.warning.maxlength', { length: 16 }))
+        .required(i18n.t('ui.warning.required')),
       },
     ),
     handleSubmit: (values, { setSubmitting }) => {

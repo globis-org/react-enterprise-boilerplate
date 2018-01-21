@@ -1,5 +1,11 @@
 {
-  "username": "User name",
-  "search": "Search",
-  "submit": "Submit"
+  "label": {
+    "username": "User name",
+    "search": "Search",
+    "submit": "Submit"
+  },
+  "warning": {
+    "maxlength": "Enter in {{length}} characters or less",
+    "required": "Required field"
+  }
 }

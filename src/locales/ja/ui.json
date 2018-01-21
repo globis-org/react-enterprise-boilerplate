@@ -1,5 +1,11 @@
 {
-  "username": "ユーザー名",
-  "search": "検索",
-  "submit": "送信"
+  "label": {
+    "username": "ユーザー名",
+    "search": "検索",
+    "submit": "送信"
+  },
+  "warning": {
+    "maxlength": "{{length}}文字以内で入力してください",
+    "required": "入力必須項目です"
+  }
 }

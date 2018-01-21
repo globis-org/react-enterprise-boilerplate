@@ -1,7 +1,7 @@
 import * as i18next from 'i18next';
 import * as LanguageDetector from 'i18next-browser-languagedetector';
 
-import * as resources from './locales';  // User relative path for Storybook
+import * as resources from './locales';  // Use relative path for Storybook
 
 const i18n = i18next
   .use(LanguageDetector)
@@ -12,7 +12,7 @@ const i18n = i18next
     debug: process.env !== 'production',
     resources,
     react: {
-      wait: true,  // true: wait for loaded in every translated hoc
+      wait: true,
     },
   });
 
