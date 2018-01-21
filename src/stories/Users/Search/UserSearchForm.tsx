@@ -12,10 +12,13 @@ storiesOf('Users Search Form', module)
       {story() as JSX.Element}
     </I18nextProvider>
   ))
-  .add('Mock form', withInfo(
-    'A form for searching users with name',
-  )(
-    () => (
-      <UserSearchForm />
-    )),
+  .add(
+    'Mock form',
+    withInfo(
+      'A form for searching users with name',
+    )(
+      () => (
+        <UserSearchForm />
+      ),
+    ),
   );
