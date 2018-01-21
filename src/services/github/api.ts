@@ -1,13 +1,14 @@
 import axios from 'axios';
-import Member from './models/Member';
-import User from './models/User';
+
+import { Member } from './models/Member';
+import { User } from './models/User';
 
 interface ApiConfig {
   baseURL: string;
   timeout: number;
 }
 
-export default class GitHubApi {
+export class GitHubApi {
   private API_CONFIG: ApiConfig;
   private DAFAULT_API_CONFIG: ApiConfig = {
     baseURL: 'https://api.github.com',

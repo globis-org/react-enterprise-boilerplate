@@ -1,5 +1,3 @@
-import GitHubApi from './api';
-import Member from './models/Member';
-import User from './models/User';
-
-export { GitHubApi, Member, User };
+export { GitHubApi } from './api';
+export { Member } from './models/Member';
+export { User } from './models/User';

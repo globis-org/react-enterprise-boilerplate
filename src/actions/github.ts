@@ -1,25 +1,24 @@
 import { ThunkAction } from 'redux-thunk';
 
 import * as constants from 'constants/github';
-import * as Model from 'models';
-import { GitHubApi } from 'services/github';
+import { GitHubApi, Member, User } from 'services/github';
 import { AbstractAction } from './';
 
 export interface GitHubAction extends AbstractAction {
   payload: {
-    members: Model.Member[],
-    users: Model.User[],
+    members: Member[],
+    users: User[],
   };
 }
 
 // Set Members
-export const setMembers = (members: Model.Member[]) => ({
+export const setMembers = (members: Member[]) => ({
   type: constants.SET_MEMBERS,
   payload: { members },
 });
 
 // Set Members
-export const setUsers = (users: Model.User[]) => ({
+export const setUsers = (users: User[]) => ({
   type: constants.SET_USERS,
   payload: { users },
 });
@@ -27,7 +26,7 @@ export const setUsers = (users: Model.User[]) => ({
 // Get Organization Members
 export const getOrganizationMembers = (): ThunkAction<void, {}, {}> =>
 async (dispatch) => {
-  let members: Model.Member[] = [];
+  let members: Member[] = [];
 
   try {
     const api = new GitHubApi();
@@ -42,7 +41,7 @@ async (dispatch) => {
 // Search Users
 export const searchUsers = (login: string): ThunkAction<void, {}, {}> =>
 async (dispatch) => {
-  let users: Model.User[] = [];
+  let users: User[] = [];
 
   try {
     const api = new GitHubApi();

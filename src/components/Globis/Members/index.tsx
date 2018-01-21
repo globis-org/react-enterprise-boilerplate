@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import { InjectedTranslateProps, translate } from 'react-i18next';
 import { Card, Header, Image } from 'semantic-ui-react';
 
-import { Member } from 'models';
+import { Member } from 'services/github';
 
 import './Members.css';
 

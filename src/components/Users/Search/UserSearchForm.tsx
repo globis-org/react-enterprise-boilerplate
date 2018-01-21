@@ -24,14 +24,15 @@ const InnerForm: React.SFC<InnerFormProps> = (
 ) => (
   <form className="UserSearchForm" onSubmit={props.handleSubmit}>
     <Input
-      id="login"
+      id={'login'}
       placeholder={props.t('ui.label.username')}
-      type="text"
+      type={'text'}
       onChange={props.handleChange}
+      size={'medium'}
       value={props.values.login}
     />
     <Button
-      type="submit"
+      type={'submit'}
       disabled={props.isSubmitting}
       primary={true}
     >
@@ -62,6 +63,6 @@ const UserSearchForm = compose(
   }),
   translate(),
   pure,
-)(InnerForm as any);
+)(InnerForm);
 
 export default UserSearchForm;
