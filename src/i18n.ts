@@ -1,7 +1,7 @@
 import * as i18next from 'i18next';
 import * as LanguageDetector from 'i18next-browser-languagedetector';
 
-import * as resources from './locales';
+import * as resources from './locales';  // User relative path for Storybook
 
 const i18n = i18next
   .use(LanguageDetector)

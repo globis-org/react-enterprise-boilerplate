@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { compose, lifecycle } from 'recompose';
+import { compose, lifecycle, pure } from 'recompose';
 import { bindActionCreators, Dispatch } from 'redux';
 
 import { getOrganizationMembers } from 'actions/github';
@@ -26,4 +26,5 @@ export default compose(
       }
     },
   }),
+  pure,
 )(GlobisMembersComponent);
