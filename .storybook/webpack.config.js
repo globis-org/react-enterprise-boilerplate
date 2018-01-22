@@ -10,6 +10,9 @@ module.exports = (baseConfig, env) => {
       include: paths.appSrc,
     },
   );
+  config.resolve.modules.push(
+    paths.appSrc,
+  );
   config.resolve.extensions.push(
     '.ts',
     '.tsx',

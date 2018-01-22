@@ -3,9 +3,9 @@ import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 import { I18nextProvider } from 'react-i18next';
 
+import GlobisMembers from 'components/Globis/Members';
+import i18n from 'i18n';
 import { Member } from 'services/github';
-import GlobisMembers from '../../../components/Globis/Members';
-import i18n from '../../../i18n';
 
 const members: Member[] = [];
 
