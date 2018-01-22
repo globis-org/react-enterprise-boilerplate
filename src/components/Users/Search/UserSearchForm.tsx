@@ -13,8 +13,8 @@ interface Values extends FormikValues {
 }
 
 interface Props {
-  login?: string;
-  onSubmit?: (login: string) => void;
+  login: string;
+  onSubmit: (login: string) => any;
 }
 
 type InnerFormProps = InjectedFormikProps<Props, Values> & InjectedTranslateProps;
@@ -22,7 +22,10 @@ type InnerFormProps = InjectedFormikProps<Props, Values> & InjectedTranslateProp
 const InnerForm: React.SFC<InnerFormProps> = (
   props,
 ) => (
-  <form className="UserSearchForm" onSubmit={props.handleSubmit}>
+  <form
+    className={'UserSearchForm'}
+    onSubmit={props.handleSubmit}
+  >
     <Input
       id={'login'}
       placeholder={props.t('ui.label.username')}
@@ -39,7 +42,9 @@ const InnerForm: React.SFC<InnerFormProps> = (
       {props.t('ui.label.search')}
     </Button>
     {props.touched.login && props.errors.login &&
-    <Message color="red">{props.errors.login}</Message>}
+    <Message error={true}>
+      {props.errors.login}
+    </Message>}
   </form>
 );
 
@@ -52,7 +57,10 @@ const UserSearchForm = compose(
     }),
     validationSchema: Yup.object().shape({
       login: Yup.string()
-        .max(16, i18n.t('ui.warning.maxlength', { length: 16 }))
+        .max(
+          16,
+          i18n.t('ui.warning.maxlength', { length: 16 }),
+        )
         .required(i18n.t('ui.warning.required')),
       },
     ),
