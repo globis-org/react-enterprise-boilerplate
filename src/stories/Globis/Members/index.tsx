@@ -6,8 +6,9 @@ import { I18nextProvider } from 'react-i18next';
 import GlobisMembers from 'components/Globis/Members';
 import i18n from 'i18n';
 import { Member } from 'services/github';
+import * as data from 'services/github/test/fixtures/members.json';
 
-const members: Member[] = [];
+const members: Member[] = (data as any);
 
 storiesOf('Globis Members', module)
   .addDecorator(story => (
