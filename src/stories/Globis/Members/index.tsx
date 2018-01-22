@@ -18,8 +18,8 @@ storiesOf('Globis Members', module)
     </I18nextProvider>
   ))
   .addDecorator(withKnobs)
-  .add('With empty member', withInfo(
-    'Member list with empty members',
+  .add('With published members', withInfo(
+    'Member list with published members',
   )(
     () => (
       <GlobisMembers members={array('Members', members)} />
