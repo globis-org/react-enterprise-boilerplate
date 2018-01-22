@@ -18,10 +18,13 @@ storiesOf('Globis Members', module)
     </I18nextProvider>
   ))
   .addDecorator(withKnobs)
-  .add('With published members', withInfo(
-    'Member list with published members',
-  )(
-    () => (
-      <GlobisMembers members={array('Members', members)} />
-    )),
+  .add(
+    'With some members',
+    withInfo(
+      `You can show a certain organization's members with card UI by passing "Member" object array as property.`,
+    )(
+      () => (
+        <GlobisMembers members={array('Members', members)} />
+      ),
+    ),
   );

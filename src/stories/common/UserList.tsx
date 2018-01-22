@@ -18,10 +18,13 @@ storiesOf('User List', module)
     </I18nextProvider>
   ))
   .addDecorator(withKnobs)
-  .add('With globis published members', withInfo(
-    'User List with globis published members',
-  )(
-    () => (
-      <UserList users={array('Users', users)} />
-    )),
+  .add(
+    'With some users',
+    withInfo(
+      `You can show GitHub users with card UI by passing "User" object array as property.`,
+    )(
+      () => (
+        <UserList users={array('Users', users)} />
+      ),
+    ),
   );
