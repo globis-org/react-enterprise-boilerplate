@@ -1,5 +1,4 @@
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 import { I18nextProvider } from 'react-i18next';
@@ -13,9 +12,8 @@ storiesOf('Users Search Form', module)
       {story() as JSX.Element}
     </I18nextProvider>
   ))
-  .addDecorator(withKnobs)
   .add('Default status', withInfo(
-    'User Search Form default status',
+    'A form for searching users with name',
   )(
     () => (
       <UserSearchForm />

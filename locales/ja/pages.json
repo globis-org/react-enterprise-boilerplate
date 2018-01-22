@@ -1,11 +1,14 @@
 {
   "top": {
-    "title": "React Enterprize Boilerplate"
+    "title": "React Enterprize Boilerplate",
+    "description": ""
   },
   "globisMembers": {
-    "title": "グロービスのメンバー"
+    "title": "グロービスのメンバー",
+    "description": "グロービスの開発メンバーの面々です。"
   },
   "usersSearch": {
-    "title": "ユーザー検索"
+    "title": "ユーザー検索",
+    "description": "GitHub ユーザーを名前で検索します。"
   }
 }
