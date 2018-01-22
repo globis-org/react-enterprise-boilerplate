@@ -8,6 +8,8 @@ import i18n from 'i18n';
 import { Member } from 'services/github';
 import * as data from 'services/github/test/fixtures/members.json';
 
+import 'semantic-ui-css/semantic.min.css';
+
 const members: Member[] = (data as any);
 
 storiesOf('Globis Members', module)
