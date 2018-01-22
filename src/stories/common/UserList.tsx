@@ -4,14 +4,14 @@ import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 import { I18nextProvider } from 'react-i18next';
 
-import GlobisMembers from 'components/Globis/Members';
+import UserList from 'components/common/UserList';
 import i18n from 'i18n';
-import { Member } from 'services/github';
-import * as data from 'services/github/test/fixtures/members.json';
+import { User } from 'services/github';
+import * as data from 'services/github/test/fixtures/users.json';
 
-const members: Member[] = (data as any);
+const users: User[] = (data as any);
 
-storiesOf('Globis Members', module)
+storiesOf('User List', module)
   .addDecorator(story => (
     <I18nextProvider i18n={i18n}>
       {story() as JSX.Element}
@@ -19,12 +19,12 @@ storiesOf('Globis Members', module)
   ))
   .addDecorator(withKnobs)
   .add(
-    'With some members',
+    'With some users',
     withInfo(
-      `You can show a certain organization's members with card UI by passing "Member" object array as property.`,
+      `You can show GitHub users with card UI by passing "User" object array as property.`,
     )(
       () => (
-        <GlobisMembers members={array('Members', members)} />
+        <UserList users={array('Users', users)} />
       ),
     ),
   );

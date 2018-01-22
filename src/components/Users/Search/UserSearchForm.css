@@ -1,8 +1,9 @@
 .UserSearchForm {
   text-align: center;
-  margin: 20px 0;
+  margin: 2em 0 4em;
 }
 
-.UserSearchForm .ui.input{
-  margin-right: 10px;
+.UserSearchForm .ui.input {
+  margin: 0.5em;
+  width: 30em;
 }

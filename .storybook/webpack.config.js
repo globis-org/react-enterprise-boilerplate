@@ -7,8 +7,15 @@ module.exports = (baseConfig, env) => {
       test: /\.(ts|tsx)?$/,
       loader: 'ts-loader',
       include: paths.appSrc,
-  });
-  config.resolve.extensions.push('.ts', '.tsx');
+    },
+  );
+  config.resolve.modules.push(
+    paths.appSrc,
+  );
+  config.resolve.extensions.push(
+    '.ts',
+    '.tsx',
+  );
 
   return config;
 }

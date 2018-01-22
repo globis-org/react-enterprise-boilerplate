@@ -1,4 +1,4 @@
-.Members {
+.UserSearch {
   margin: 2em 1.5em;
 }
 
@@ -8,8 +8,4 @@ h2.ui.header {
 
 h2.ui.header .sub.header {
   margin: 0.25em 0;
-}
-
-.ui.cards>.card {
-  margin: 0.75em 0.5em;
 }
