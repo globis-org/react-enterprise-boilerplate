@@ -88,6 +88,7 @@
     "@types/storybook__addon-knobs": "^3.2.1",
     "@types/storybook__react": "^3.0.6",
     "@types/yup": "^0.23.1",
+    "cypress": "^1.4.1",
     "prettier": "^1.9.2",
     "redux-devtools": "^3.4.1",
     "storybook-addon-figma": "^0.1.0",
