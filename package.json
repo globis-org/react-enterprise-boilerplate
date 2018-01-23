@@ -57,8 +57,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "jest --config jest.config.json",
-    "test:intr": "node scripts/test.js --config jest.config.json",
+    "test": "jest --config jest.config.json --env=jsdom",
+    "test:intr": "node scripts/test.js --config jest.config.json --env=jsdom",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "tslint-check": "tslint-config-prettier-check ./tslint.json"
   },

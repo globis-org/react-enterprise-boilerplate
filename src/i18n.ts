@@ -1,11 +1,7 @@
 import * as i18next from 'i18next';
 import * as LanguageDetector from 'i18next-browser-languagedetector';
 
-import { genI18nResources } from './utils/localeHandler';
-
-const resources = genI18nResources(
-  require.context('../locales', true, /\.json$/),
-);
+import resources from 'locales';
 
 const i18n = i18next
   .use(LanguageDetector)
