@@ -32,7 +32,7 @@ async (dispatch) => {
     const api = new GitHubApi();
     members = await api.getOrganizationMembers('globis-org');
   } catch (err) {
-    console.log(err.message);
+    throw(err);
   }
 
   dispatch(setMembers(members));
@@ -47,7 +47,7 @@ async (dispatch) => {
     const api = new GitHubApi();
     users = await api.searchUsers(login);
   } catch (err) {
-    console.log(err.message);
+    throw(err);
   }
 
   dispatch(setUsers(users));
