@@ -1,3 +1,10 @@
+/**
+ * @usage
+ * import { genI18nResources } from './utils/localeHandler';
+ * const resources = genI18nResources(
+ *   require.context('../locales', true, /\.json$/),
+ * );
+ */
 export const genI18nResources = (
   context: __WebpackModuleApi.RequireContext,
 ) => {
