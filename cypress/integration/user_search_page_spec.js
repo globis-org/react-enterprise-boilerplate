@@ -4,14 +4,14 @@ describe('The User Search Page', function() {
     cy.get('a[href="/users/search"]').click()
     cy.get('#login').type('01234567891234567')
     cy.get('button[type=submit]').click()
-    cy.contains('16文字以内で入力してください')
+    cy.contains('16文字以内で入力してください').should('be.visible')
   })
 
   it('入力必須エラーが発生する', function() {
     cy.visit('/')
     cy.get('a[href="/users/search"]').click()
     cy.get('button[type=submit]').click()
-    cy.contains('入力必須項目です')
+    cy.contains('入力必須項目です').should('be.visible')
   })
 
   it('検索結果が表示される', function() {
@@ -19,6 +19,6 @@ describe('The User Search Page', function() {
     cy.get('a[href="/users/search"]').click()
     cy.get('#login').type('taro')
     cy.get('button[type=submit]').click()
-    cy.contains('taro')
+    cy.contains('taro').should('be.visible')
   })
 })
