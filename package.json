@@ -63,6 +63,7 @@
     "tslint-check": "tslint-config-prettier-check ./tslint.json"
   },
   "devDependencies": {
+    "@cypress/webpack-preprocessor": "^1.1.3",
     "@storybook/addon-info": "^3.3.9",
     "@storybook/addon-knobs": "^3.3.9",
     "@storybook/react": "^3.3.9",
