@@ -5,6 +5,8 @@
 
 # testing
 /coverage
+**/screenshots
+**/__screenshots__
 
 # production
 /build
@@ -24,5 +26,5 @@ yarn.lock
 .env.development.local
 .env.test.local
 .env.production.local
-.vscode/
+.vscode
 .*.swp

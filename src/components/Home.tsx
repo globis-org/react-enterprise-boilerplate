@@ -12,8 +12,22 @@ const HomeComponent: React.SFC<HomeComponentProps> = (
 ) => (
   <div>
     <ul>
-      <li><Link to={pages.globisMembers.path}>{t('pages.globisMembers.title')}</Link></li>
-      <li><Link to={pages.usersSearch.path}>{t('pages.usersSearch.title')}</Link></li>
+      <li>
+        <Link
+          to={pages.globisMembers.path}
+          data-test={'members-link'}
+        >
+          {t('pages.globisMembers.title')}
+        </Link>
+      </li>
+      <li>
+        <Link
+          to={pages.usersSearch.path}
+          data-test={'search-link'}
+        >
+          {t('pages.usersSearch.title')}
+        </Link>
+      </li>
     </ul>
   </div>
 );

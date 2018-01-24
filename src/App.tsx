@@ -23,7 +23,7 @@ const App: React.SFC<AppProps> = (props) => {
       </Helmet>
 
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={logo} className="App-logo" alt="logo" data-test={'react-logo'} />
         <h2>{t('pages.top.title')}</h2>
       </header>
       <Switch>

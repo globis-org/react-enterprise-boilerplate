@@ -19,7 +19,7 @@ const GlobisMembersComponent: React.SFC<GlobisProps> = ({ t, members }) => (
         {t('pages.globisMembers.title')}
       </title>
     </Helmet>
-    <div className={'Members'}>
+    <div className={'Members'} data-test={'members'}>
       <Header as="h2">
         {t('pages.globisMembers.title')}
         <Header.Subheader>
