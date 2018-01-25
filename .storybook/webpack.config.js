@@ -3,20 +3,13 @@ const paths = require('../config/paths');
 
 module.exports = (baseConfig, env) => {
   const config = defaultConfig(baseConfig, env);
-  config.module.rules.push(
-    {
-      test: /\.(ts|tsx)?$/,
-      loader: 'ts-loader',
-      include: paths.appSrc,
-    },
-  );
-  config.resolve.modules.push(
-    paths.appSrc,
-  );
-  config.resolve.extensions.push(
-    '.ts',
-    '.tsx',
-  );
+  config.module.rules.push({
+    test: /\.(ts|tsx)?$/,
+    loader: 'ts-loader',
+    include: paths.appSrc,
+  });
+  config.resolve.modules.push(paths.appSrc);
+  config.resolve.extensions.push('.ts', '.tsx');
 
   return config;
 }
