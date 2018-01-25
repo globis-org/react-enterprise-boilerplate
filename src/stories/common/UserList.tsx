@@ -7,7 +7,7 @@ import { I18nextProvider } from 'react-i18next';
 import UserList from 'components/common/UserList';
 import i18n from 'i18n';
 import { User } from 'services/github';
-import * as data from 'services/github/test/fixtures/users.json';
+import * as data from 'services/github/tests/fixtures/users.json';
 
 const users: User[] = (data as any);
 
