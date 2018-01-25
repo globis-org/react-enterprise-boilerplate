@@ -3,7 +3,7 @@ import { compose, lifecycle, pure } from 'recompose';
 import { bindActionCreators, Dispatch } from 'redux';
 
 import { getOrganizationMembers } from 'actions/github';
-import GlobisMembersComponent, { GlobisProps } from 'components/Globis/Members';
+import GlobisMembers, { GlobisMembersProps } from 'components/Globis/Members';
 import { State } from 'reducers';
 
 const mapStateToProps = (state: State) => ({
@@ -15,11 +15,11 @@ const mapDispatchToProps = (dispatch: Dispatch<{}>) => (
 );
 
 export default compose(
-  (connect as any)(
+  connect(
     mapStateToProps,
     mapDispatchToProps,
   ),
-  lifecycle<GlobisProps, {}, {}>({
+  lifecycle<GlobisMembersProps, {}, {}>({
     componentWillMount() {
       if (this.props.getOrganizationMembers) {
         this.props.getOrganizationMembers();
@@ -27,4 +27,4 @@ export default compose(
     },
   }),
   pure,
-)(GlobisMembersComponent);
+)(GlobisMembers);

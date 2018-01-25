@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Card, Image } from 'semantic-ui-react';
 
 import { User } from 'services/github';
-import './UserList.css';
 
 export interface UserListProps {
   users: User[];

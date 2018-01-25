@@ -5,14 +5,15 @@ import { Card, Header, Image } from 'semantic-ui-react';
 
 import { Member } from 'services/github';
 
-import './Members.css';
+import 'common.css';
+import './index.css';
 
-export interface GlobisProps extends InjectedTranslateProps {
+export interface GlobisMembersProps extends InjectedTranslateProps {
   members: Member[];
   getOrganizationMembers?(): any;
 }
 
-const GlobisMembersComponent: React.SFC<GlobisProps> = ({ t, members }) => (
+const GlobisMembers: React.SFC<GlobisMembersProps> = ({ t, members }) => (
   <div>
     <Helmet>
       <title>
@@ -44,8 +45,8 @@ const GlobisMembersComponent: React.SFC<GlobisProps> = ({ t, members }) => (
   </div>
 );
 
-GlobisMembersComponent.defaultProps = {
+GlobisMembers.defaultProps = {
   members: [],
 };
 
-export default translate()(GlobisMembersComponent);
+export default translate()(GlobisMembers);

@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 
 import pages from 'pages';
 
-type HomeComponentProps = {} & InjectedTranslateProps;
+type HomeProps = {} & InjectedTranslateProps;
 
-const HomeComponent: React.SFC<HomeComponentProps> = (
+const Home: React.SFC<HomeProps> = (
   { t },
 ) => (
   <div>
@@ -32,4 +32,4 @@ const HomeComponent: React.SFC<HomeComponentProps> = (
   </div>
 );
 
-export default translate()(HomeComponent);
+export default translate()(Home);
