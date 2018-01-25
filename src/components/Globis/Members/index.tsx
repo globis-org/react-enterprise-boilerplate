@@ -34,7 +34,7 @@ const GlobisMembersComponent: React.SFC<GlobisProps> = ({ t, members }) => (
           >
             <Card.Content>
               <Image floated="right" size="mini" src={member.avatar_url} />
-              <Card.Header>{member.login}</Card.Header>
+              <Card.Header data-test={'card-header'}>{member.login}</Card.Header>
               <Card.Meta>GitHub ID: {member.id}</Card.Meta>
             </Card.Content>
           </Card>,
