@@ -10,7 +10,7 @@ type HomeProps = {} & InjectedTranslateProps;
 const Home: React.SFC<HomeProps> = (
   { t },
 ) => (
-  <div>
+  <>
     <ul>
       <li>
         <Link
@@ -29,7 +29,7 @@ const Home: React.SFC<HomeProps> = (
         </Link>
       </li>
     </ul>
-  </div>
+  </>
 );
 
 export default translate()(Home);
