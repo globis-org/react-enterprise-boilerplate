@@ -2,7 +2,8 @@
 
 import { configure } from '@storybook/react';
 import 'semantic-ui-css/semantic.min.css';
-import 'root.css';
+
+import 'styles/stories.css';
 
 const req = require.context('../src/stories', true, /\.(ts$|tsx$)/);
 

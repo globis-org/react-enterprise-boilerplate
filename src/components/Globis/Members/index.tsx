@@ -5,7 +5,7 @@ import { Card, Header, Image } from 'semantic-ui-react';
 
 import { Member } from 'services/github';
 
-import 'common.css';
+import 'styles/common.css';
 import './index.css';
 
 export interface GlobisMembersProps extends InjectedTranslateProps {

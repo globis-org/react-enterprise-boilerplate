@@ -6,7 +6,7 @@ import { Header } from 'semantic-ui-react';
 import UserList from 'containers/common/UserList';
 import UserSearchForm from 'containers/Users/Search/UserSearchForm';
 
-import 'common.css';
+import 'styles/common.css';
 import './index.css';
 
 type UsersSearchProps = {} & InjectedTranslateProps;
