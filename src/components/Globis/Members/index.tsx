@@ -10,7 +10,7 @@ import './index.css';
 
 export interface GlobisMembersProps extends InjectedTranslateProps {
   members: Member[];
-  getOrganizationMembers?(): any;
+  loadMembers?(query: string): any;
 }
 
 const GlobisMembers: React.SFC<GlobisMembersProps> = ({ t, members }) => (

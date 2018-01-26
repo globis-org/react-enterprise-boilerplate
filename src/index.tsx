@@ -1,24 +1,32 @@
 import { createBrowserHistory as createHistory } from 'history';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import { I18nextProvider } from 'react-i18next';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
 import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import thunkMiddleware from 'redux-thunk';
-import 'semantic-ui-css/semantic.min.css';
+import createSagaMiddleware from 'redux-saga';
 
-import { I18nextProvider } from 'react-i18next';
 import reducer from 'reducers';
+import rootTask from 'tasks';
 import App from './App';
 import i18n from './i18n';
-import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
+import 'semantic-ui-css/semantic.min.css';
+import './index.css';
+
+const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
   reducer,
-  composeWithDevTools(applyMiddleware(thunkMiddleware)),
+  composeWithDevTools(
+    applyMiddleware(
+      sagaMiddleware,
+    ),
+  ),
 );
+sagaMiddleware.run(rootTask);
 
 ReactDOM.render(
   <Provider store={store}>

@@ -47,6 +47,8 @@
     "tslint-loader": "^3.5.3",
     "tslint-react": "^3.2.0",
     "typescript": "^2.7.0-dev.20180122",
+    "typescript-fsa": "^2.5.0",
+    "typescript-fsa-reducers": "^0.4.5",
     "url-loader": "0.5.9",
     "webpack": "^3.10.0",
     "webpack-dev-server": "2.7.1",

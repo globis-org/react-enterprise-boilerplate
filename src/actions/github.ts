@@ -1,54 +1,21 @@
-import { ThunkAction } from 'redux-thunk';
+import actionCreatorFactory from 'typescript-fsa';
 
-import * as constants from 'constants/github';
-import { GitHubApi, Member, User } from 'services/github';
-import { AbstractAction } from './';
+import { Member, User } from 'services/github';
 
-export interface GitHubAction extends AbstractAction {
-  payload: {
-    members: Member[],
-    users: User[],
-  };
-}
+const actionCreator = actionCreatorFactory('GITHUB');
 
-// Set Members
-export const setMembers = (members: Member[]) => ({
-  type: constants.SET_MEMBERS,
-  payload: { members },
-});
+export const loadMembers = actionCreator<{
+  organization: string,
+}>('LOAD_MEMBERS');
 
-// Set Members
-export const setUsers = (users: User[]) => ({
-  type: constants.SET_USERS,
-  payload: { users },
-});
+export const setMembers = actionCreator<{
+  members: Member[],
+}>('SET_MEMBERS');
 
-// Get Organization Members
-export const getOrganizationMembers = (): ThunkAction<void, {}, {}> =>
-async (dispatch) => {
-  let members: Member[] = [];
+export const searchUsers = actionCreator<{
+  query: string,
+}>('SEARCH_USERS');
 
-  try {
-    const api = new GitHubApi();
-    members = await api.getOrganizationMembers('globis-org');
-  } catch (err) {
-    throw(err);
-  }
-
-  dispatch(setMembers(members));
-};
-
-// Search Users
-export const searchUsers = (login: string): ThunkAction<void, {}, {}> =>
-async (dispatch) => {
-  let users: User[] = [];
-
-  try {
-    const api = new GitHubApi();
-    users = await api.searchUsers(login);
-  } catch (err) {
-    throw(err);
-  }
-
-  dispatch(setUsers(users));
-};
+export const setUsers = actionCreator<{
+  users: User[],
+}>('SET_USERS');
