@@ -16,11 +16,11 @@ const initialState: GithubState = {
 const githubReducer = reducerWithInitialState(initialState)
   .case(
     actions.setMembers,
-    (state, { members }) => ({ state, members }),
+    (state, { members }) => ({ ...state, members }),
   )
   .case(
     actions.setUsers,
-    (state, { users }) => ({ state, users }),
+    (state, { users }) => ({ ...state, users }),
   );
 
 export default githubReducer;
