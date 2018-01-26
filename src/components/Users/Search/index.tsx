@@ -6,11 +6,12 @@ import { Header } from 'semantic-ui-react';
 import UserList from 'containers/common/UserList';
 import UserSearchForm from 'containers/Users/Search/UserSearchForm';
 
+import 'styles/common.css';
 import './index.css';
 
-type UsersSearchComponentProps = {} & InjectedTranslateProps;
+type UsersSearchProps = {} & InjectedTranslateProps;
 
-const UsersSearchComponent: React.SFC<UsersSearchComponentProps> = ({ t }) => (
+const UsersSearch: React.SFC<UsersSearchProps> = ({ t }) => (
   <div className="UserSearch">
     <Helmet>
       <title>
@@ -28,4 +29,4 @@ const UsersSearchComponent: React.SFC<UsersSearchComponentProps> = ({ t }) => (
   </div>
 );
 
-export default translate()(UsersSearchComponent);
+export default translate()(UsersSearch);

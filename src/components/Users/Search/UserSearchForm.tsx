@@ -33,16 +33,18 @@ const InnerForm: React.SFC<InnerFormProps> = (
       onChange={props.handleChange}
       size={'medium'}
       value={props.values.login}
+      data-test={'login-name'}
     />
     <Button
       type={'submit'}
       disabled={props.isSubmitting}
       primary={true}
+      data-test={'exec-search'}
     >
       {props.t('ui.label.search')}
     </Button>
     {props.touched.login && props.errors.login &&
-    <Message error={true}>
+    <Message error={true} data-test={'error-message'}>
       {props.errors.login}
     </Message>}
   </form>

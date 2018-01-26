@@ -5,9 +5,12 @@
 
 # testing
 /coverage
+**/screenshots
+**/__screenshots__
 
 # production
 /build
+/storybook
 
 # logs
 npm-debug.log*
@@ -24,5 +27,5 @@ yarn.lock
 .env.development.local
 .env.test.local
 .env.production.local
-.vscode/
+.vscode
 .*.swp

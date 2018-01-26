@@ -5,9 +5,10 @@ import { Card, Header, Image } from 'semantic-ui-react';
 
 import { Member } from 'services/github';
 
-import './Members.css';
+import 'styles/common.css';
+import './index.css';
 
-export interface GlobisProps extends InjectedTranslateProps {
+export interface GlobisMembersProps extends InjectedTranslateProps {
   members: Member[];
   getOrganizationMembers?(): any;
 }
@@ -19,7 +20,7 @@ const GlobisMembersComponent: React.SFC<GlobisProps> = ({ t, members }) => (
         {t('pages.globisMembers.title')}
       </title>
     </Helmet>
-    <div className={'Members'}>
+    <div className={'Members'} data-test={'members'}>
       <Header as="h2">
         {t('pages.globisMembers.title')}
         <Header.Subheader>
@@ -34,7 +35,7 @@ const GlobisMembersComponent: React.SFC<GlobisProps> = ({ t, members }) => (
           >
             <Card.Content>
               <Image floated="right" size="mini" src={member.avatar_url} />
-              <Card.Header>{member.login}</Card.Header>
+              <Card.Header data-test={'card-header'}>{member.login}</Card.Header>
               <Card.Meta>GitHub ID: {member.id}</Card.Meta>
             </Card.Content>
           </Card>,
@@ -44,8 +45,8 @@ const GlobisMembersComponent: React.SFC<GlobisProps> = ({ t, members }) => (
   </>
 );
 
-GlobisMembersComponent.defaultProps = {
+GlobisMembers.defaultProps = {
   members: [],
 };
 
-export default translate()(GlobisMembersComponent);
+export default translate()(GlobisMembers);
