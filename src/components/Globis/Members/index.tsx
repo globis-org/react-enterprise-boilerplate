@@ -13,7 +13,7 @@ export interface GlobisProps extends InjectedTranslateProps {
 }
 
 const GlobisMembersComponent: React.SFC<GlobisProps> = ({ t, members }) => (
-  <div>
+  <>
     <Helmet>
       <title>
         {t('pages.globisMembers.title')}
@@ -41,7 +41,7 @@ const GlobisMembersComponent: React.SFC<GlobisProps> = ({ t, members }) => (
         )}
       </Card.Group>
     </div>
-  </div>
+  </>
 );
 
 GlobisMembersComponent.defaultProps = {

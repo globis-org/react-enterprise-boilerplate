@@ -17,7 +17,7 @@ const App: React.SFC<AppProps> = (props) => {
   const { t } = props;
 
   return (
-    <div>
+    <>
       <Helmet htmlAttributes={{ lang: 'ja' }}>
         <title>{t('pages.top.title')}</title>
       </Helmet>
@@ -32,7 +32,7 @@ const App: React.SFC<AppProps> = (props) => {
         <Route path={pages.usersSearch.path} component={UsersSearch} />
         <Redirect to="/" />
       </Switch>
-    </div>
+    </>
   );
 };
 
