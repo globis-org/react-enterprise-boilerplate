@@ -1,37 +1,26 @@
-import { Reducer } from 'redux';
+import { reducerWithInitialState } from 'typescript-fsa-reducers';
 
-import { GitHubAction } from 'actions/github';
-import * as constants from 'constants/github';
+import * as actions from 'actions/github';
 import { Member, User } from 'services/github';
 
 export interface GithubState {
-  members: Member[];
-  users: User[];
+  members?: Member[];
+  users?: User[];
 }
 
-const initialState = {
+const initialState: GithubState = {
   members: [],
   users: [],
  };
 
-const githubReducer: Reducer<GithubState> = (
-  state: GithubState = initialState,
-  action: GitHubAction,
-) => {
-  switch (action.type) {
-  case constants.SET_MEMBERS:
-    return {
-      ...state,
-      members: action.payload.members,
-    };
-  case constants.SET_USERS:
-    return {
-      ...state,
-      users: action.payload.users,
-    };
-  default:
-    return state;
-  }
-};
+const githubReducer = reducerWithInitialState(initialState)
+  .case(
+    actions.setMembers,
+    (state, { members }) => ({ state, members }),
+  )
+  .case(
+    actions.setUsers,
+    (state, { users }) => ({ state, users }),
+  );
 
 export default githubReducer;
