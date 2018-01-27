@@ -20,7 +20,7 @@ export default compose(
     mapDispatchToProps,
   ),
   lifecycle<GlobisMembersProps, {}, {}>({
-    componentWillMount() {
+    componentDidMount() {
       if (this.props.loadMembers) {
         this.props.loadMembers('globis-org');
       }
