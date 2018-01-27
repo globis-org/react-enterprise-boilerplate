@@ -11,4 +11,4 @@ const mapDispatchToProps = (dispatch: Dispatch<{}>) => bindActionCreators(
   dispatch,
 );
 
-export default connect(null, mapDispatchToProps)(UserSearchForm as any);
+export default connect<any>(null, mapDispatchToProps)(UserSearchForm);

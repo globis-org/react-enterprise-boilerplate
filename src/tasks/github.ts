@@ -40,7 +40,7 @@ function* watchLoadSearchUsers(): SagaIterator {
   }
 }
 
-export default function* githubTasks() {
+export default function* githubTask() {
   yield all([
     fork(watchLoadMembers),
     fork(watchLoadSearchUsers),

@@ -1,8 +1,8 @@
 import { all, fork } from 'redux-saga/effects';
-import githubTasks from './github';
+import githubTask from './github';
 
 export default function* rootTask() {
   yield all([
-    fork(githubTasks),
+    fork(githubTask),
   ]);
 }

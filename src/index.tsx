@@ -8,7 +8,7 @@ import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 
-import reducer from 'reducers';
+import rootReducer from 'reducers';
 import rootTask from 'tasks';
 import App from './App';
 import i18n from './i18n';
@@ -19,7 +19,7 @@ import './index.css';
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
-  reducer,
+  rootReducer,
   composeWithDevTools(
     applyMiddleware(
       sagaMiddleware,

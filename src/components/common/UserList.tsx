@@ -22,7 +22,7 @@ const UserList: React.SFC<UserListProps> = (props) => {
             <Card.Header>{user.login}</Card.Header>
             <Card.Meta>GitHub ID: {user.id}</Card.Meta>
             <Card.Description>
-              GitHub Score: {user.score}
+              Matching score: {user.score}
             </Card.Description>
           </Card.Content>
         </Card>,

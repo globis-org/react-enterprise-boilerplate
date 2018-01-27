@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux';
 
-import github, { GithubState } from './github';
+import { githubReducer, GithubState } from './github';
 
 export interface State {
   github: GithubState;
 }
 
-const combinedReducer = combineReducers({
-  github,
+const rootReducer = combineReducers({
+  github: githubReducer,
 });
 
-export default combinedReducer;
+export default rootReducer;

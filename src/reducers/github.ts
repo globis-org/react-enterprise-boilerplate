@@ -4,8 +4,8 @@ import * as actions from 'actions/github';
 import { Member, User } from 'services/github';
 
 export interface GithubState {
-  members?: Member[];
-  users?: User[];
+  members: Member[];
+  users: User[];
 }
 
 const initialState: GithubState = {
@@ -13,7 +13,7 @@ const initialState: GithubState = {
   users: [],
  };
 
-const githubReducer = reducerWithInitialState(initialState)
+export const githubReducer = reducerWithInitialState(initialState)
   .case(
     actions.setMembers,
     (state, { members }) => ({ ...state, members }),
@@ -22,5 +22,3 @@ const githubReducer = reducerWithInitialState(initialState)
     actions.setUsers,
     (state, { users }) => ({ ...state, users }),
   );
-
-export default githubReducer;
