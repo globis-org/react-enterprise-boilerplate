@@ -18,14 +18,21 @@ import 'semantic-ui-css/semantic.min.css';
 import './index.css';
 
 const sagaMiddleware = createSagaMiddleware();
+
+const getMiddleware = () => {
+  const applied = applyMiddleware(
+    sagaMiddleware,
+  );
+
+  return process.env.NODE_ENV === 'production' ?
+    applied : composeWithDevTools(applied);
+};
+
 const store = createStore(
   rootReducer,
-  composeWithDevTools(
-    applyMiddleware(
-      sagaMiddleware,
-    ),
-  ),
+  getMiddleware(),
 );
+
 sagaMiddleware.run(rootTask);
 
 ReactDOM.render(
