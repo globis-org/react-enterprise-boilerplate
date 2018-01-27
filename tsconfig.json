@@ -13,7 +13,7 @@
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noUnusedLocals": true,
-    "outDir": "build/dist",
+    "outDir": "build/compiled",
     "rootDir": "./",
     "skipLibCheck": true,
     "sourceMap": true,

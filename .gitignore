@@ -10,7 +10,6 @@
 
 # production
 /build
-/storybook
 
 # logs
 npm-debug.log*

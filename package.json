@@ -66,7 +66,7 @@
     "test:e2e:chrome:iphone": "testcafe \"chrome:emulation:device=iphone6\" testcafe/features/**/*.spec.ts --screenshots testcafe/screenshots --screenshots-on-fails --selection-timeout 5000",
     "test:e2e:remote": "testcafe remote testcafe/features/**/*.spec.ts --screenshots testcafe/screenshots --screenshots-on-fails --selection-timeout 5000 --qr-code",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "storybook:build": "build-storybook --output-dir ./storybook",
+    "storybook:build": "build-storybook --output-dir ./build/storybook",
     "tslint-check": "tslint-config-prettier-check ./tslint.json"
   },
   "devDependencies": {
