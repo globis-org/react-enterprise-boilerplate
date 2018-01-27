@@ -1,4 +1,4 @@
-import { createBrowserHistory as createHistory } from 'history';
+import { createBrowserHistory } from 'history';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { I18nextProvider } from 'react-i18next';
@@ -13,10 +13,12 @@ import store from './store';
 import 'semantic-ui-css/semantic.min.css';
 import './index.css';
 
+const history = createBrowserHistory();
+
 ReactDOM.render(
   <Provider store={store}>
     <I18nextProvider i18n={i18n}>
-      <Router history={createHistory()}>
+      <Router history={history}>
         <App />
       </Router>
     </I18nextProvider>
