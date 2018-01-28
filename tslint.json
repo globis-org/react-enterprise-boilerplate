@@ -58,6 +58,7 @@
         "no-eval": true,
         "no-implicit-dependencies": false,
         "no-multi-spaces": true,
+        "no-namespace": true,
         "no-shadowed-variable": true,
         "no-string-literal": false,
         "no-submodule-imports": false,
