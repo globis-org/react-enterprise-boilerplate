@@ -3,5 +3,5 @@ export const removeTrailingSlash = (url: string) => (
 );
 
 export const fullTrim = (text: string) => (
-  text.replace(/^[\s　]+/, '').replace(/[\s　]$/, '')
+  text.replace(/^[\s　]+/, '').replace(/[\s　]+$/, '')
 );
