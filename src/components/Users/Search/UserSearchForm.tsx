@@ -19,33 +19,39 @@ interface Props {
 
 type InnerFormProps = InjectedFormikProps<Props, Values> & InjectedTranslateProps;
 
-const InnerForm: React.SFC<InnerFormProps> = (
-  props,
-) => (
+const InnerForm: React.SFC<InnerFormProps> = ({
+  errors,
+  handleChange,
+  handleSubmit,
+  isSubmitting,
+  t,
+  touched,
+  values,
+}) => (
   <form
     className={'UserSearchForm'}
-    onSubmit={props.handleSubmit}
+    onSubmit={handleSubmit}
   >
     <Input
       id={'login'}
-      placeholder={props.t('ui.label.username')}
+      placeholder={t('ui.label.username')}
       type={'text'}
-      onChange={props.handleChange}
+      onChange={handleChange}
       size={'medium'}
-      value={props.values.login}
+      value={values.login}
       data-test={'login-name'}
     />
     <Button
       type={'submit'}
-      disabled={props.isSubmitting}
+      disabled={isSubmitting}
       primary={true}
       data-test={'exec-search'}
     >
-      {props.t('ui.label.search')}
+      {t('ui.label.search')}
     </Button>
-    {props.touched.login && props.errors.login &&
+    {touched.login && errors.login &&
     <Message error={true} data-test={'error-message'}>
-      {props.errors.login}
+      {errors.login}
     </Message>}
   </form>
 );
