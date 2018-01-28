@@ -27,7 +27,7 @@ export class GitHubApi {
     };
   }
 
-  public getOrganizationMembers = async (
+  getOrganizationMembers = async (
     organizationName: string,
   ) => {
     const instance = axios.create(this.API_CONFIG);
@@ -47,7 +47,7 @@ export class GitHubApi {
     }
   }
 
-  public searchUsers = async(
+  searchUsers = async(
     query: string,
   ) => {
     const escapedQuery = encodeURIComponent(fullTrim(query));

@@ -29,6 +29,7 @@
         "jsx-no-multiline-js": false,
         "label-position": true,
         "max-line-length": [true, 120],
+        "member-access": false,
         "member-ordering": [
             true,
             "public-before-private",
