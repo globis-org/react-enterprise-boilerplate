@@ -27,17 +27,24 @@ function* watchSearchUsers(): SagaIterator {
 }
 
 function* runSearchUsers(action: any): SagaIterator {
+  const query = action.payload.query;
+
   try {
-    const query = action.payload;
     const api = new GitHubApi();
     const users = yield call(
       api.searchUsers,
       query,
     );
-    yield put(actions.searchUsers.done(users));
+    yield put(actions.searchUsers.done({
+      params: { query },
+      result: { users },
+    }));
 
-  } catch (err) {
-    yield put(actions.searchUsers.failed(err));
+  } catch (error) {
+    yield put(actions.searchUsers.failed({
+      params: { query },
+      error: error as Error,
+    }));
   }
 }
 

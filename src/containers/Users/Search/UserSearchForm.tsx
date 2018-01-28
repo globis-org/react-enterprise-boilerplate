@@ -7,7 +7,7 @@ import { State } from 'reducers';
 
 const mapDispatchToProps = (dispatch: Dispatch<State>) => (
   bindActionCreators(
-    { onSubmit: searchUsers.started },
+    { onSubmit: (query) => searchUsers.started({ query }) },
     dispatch,
   )
 );

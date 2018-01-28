@@ -32,7 +32,7 @@ export const githubReducer = reducerWithInitialState(initialState)
     actions.searchUsers.done,
     (state, payload) => ({
       ...state,
-      users: (payload as any),
+      users: payload.result.users,
       usersSearchStatus: null,
     }),
   );

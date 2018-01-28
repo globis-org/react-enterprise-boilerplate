@@ -13,7 +13,7 @@ export const setMembers = actionCreator<{
 }>('SET_MEMBERS');
 
 export const searchUsers = actionCreator.async<
-  string, // query (params)
-  User[], // (result)
-  Error   // (error)
+  { query: string },
+  { users: User[] },
+  Error
 >('SEARCH_USERS');
