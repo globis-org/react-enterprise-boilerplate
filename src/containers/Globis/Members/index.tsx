@@ -10,7 +10,7 @@ const mapStateToProps = (state: State) => ({
   members: state.github.members,
 });
 
-const mapDispatchToProps = (dispatch: Dispatch<{}>) => (
+const mapDispatchToProps = (dispatch: Dispatch<State>) => (
   bindActionCreators({ loadMembers }, dispatch)
 );
 

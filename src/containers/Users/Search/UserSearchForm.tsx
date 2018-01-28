@@ -3,12 +3,10 @@ import { bindActionCreators, Dispatch } from 'redux';
 
 import { searchUsers } from 'actions/github';
 import UserSearchForm from 'components/Users/Search/UserSearchForm';
+import { State } from 'reducers';
 
-const mapDispatchToProps = (dispatch: Dispatch<{}>) => bindActionCreators(
-  {
-    onSubmit: searchUsers,
-  },
-  dispatch,
+const mapDispatchToProps = (dispatch: Dispatch<State>) => (
+  bindActionCreators({ onSubmit: searchUsers }, dispatch)
 );
 
 export default connect<any>(null, mapDispatchToProps)(UserSearchForm);
