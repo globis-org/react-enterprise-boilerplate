@@ -60,7 +60,7 @@ const UserSearchForm = compose<any, any>(
   withFormik<Props, Values>({
     mapPropsToValues: (props: Props) => ({
       login: props.login || '',
-      onSubmit:
+      searchUsers:
         props.searchUsers ? props.searchUsers : () => {},
     }),
     validationSchema: Yup.object().shape({
@@ -73,7 +73,7 @@ const UserSearchForm = compose<any, any>(
       },
     ),
     handleSubmit: (values, { setSubmitting }) => {
-      values.onSubmit(values.login);
+      values.searchUsers(values.login);
       setSubmitting(false);
     },
   }),
