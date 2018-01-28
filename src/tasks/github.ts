@@ -23,20 +23,21 @@ function* loadMembers(action: any): SagaIterator {
 }
 
 function* watchSearchUsers(): SagaIterator {
-  yield takeEvery(actions.searchUsers, searchUsers);
+  yield takeEvery(actions.searchUsers.started, runSearchUsers);
 }
 
-function* searchUsers(action: any): SagaIterator {
+function* runSearchUsers(action: any): SagaIterator {
   try {
+    const query = action.payload;
     const api = new GitHubApi();
     const users = yield call(
       api.searchUsers,
-      action.payload,
+      query,
     );
-    yield put(actions.setUsers({ users }));
+    yield put(actions.searchUsers.done(users));
 
   } catch (err) {
-    throw err;
+    yield put(actions.searchUsers.failed(err));
   }
 }
 

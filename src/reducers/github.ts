@@ -6,11 +6,13 @@ import { Member, User } from 'services/github';
 export interface GithubState {
   members: Member[];
   users: User[];
+  usersSearchStatus: null | 'searching' | 'failed';
 }
 
 const initialState: GithubState = {
   members: [],
   users: [],
+  usersSearchStatus: null,
  };
 
 export const githubReducer = reducerWithInitialState(initialState)
@@ -19,6 +21,18 @@ export const githubReducer = reducerWithInitialState(initialState)
     (state, { members }) => ({ ...state, members }),
   )
   .case(
-    actions.setUsers,
-    (state, { users }) => ({ ...state, users }),
+    actions.searchUsers.started,
+    (state) => ({ ...state, usersSearchStatus: 'searching' }),
+  )
+  .case(
+    actions.searchUsers.failed,
+    (state) => ({ ...state, usersSearchStatus: 'failed' }),
+  )
+  .case(
+    actions.searchUsers.done,
+    (state, payload) => ({
+      ...state,
+      users: (payload as any),
+      usersSearchStatus: null,
+    }),
   );

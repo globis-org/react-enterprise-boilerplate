@@ -6,7 +6,10 @@ import UserSearchForm from 'components/Users/Search/UserSearchForm';
 import { State } from 'reducers';
 
 const mapDispatchToProps = (dispatch: Dispatch<State>) => (
-  bindActionCreators({ onSubmit: searchUsers }, dispatch)
+  bindActionCreators(
+    { onSubmit: searchUsers.started },
+    dispatch,
+  )
 );
 
 export default connect<any>(null, mapDispatchToProps)(UserSearchForm);

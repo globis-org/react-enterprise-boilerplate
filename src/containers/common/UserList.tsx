@@ -5,6 +5,7 @@ import { State } from 'reducers';
 
 const mapStateToProps = (state: State) => ({
   users: state.github.users,
+  isSearching: state.github.usersSearchStatus === 'searching',
 });
 
-export default connect(mapStateToProps)(UserList);
+export default connect(mapStateToProps)(UserList as any);

@@ -1,16 +1,29 @@
 import * as React from 'react';
-import { Card, Image } from 'semantic-ui-react';
+import { Card, Image, Loader } from 'semantic-ui-react';
 
 import { User } from 'services/github';
 
 export interface UserListProps {
   users: User[];
+  isSearching?: boolean;
 }
 
 const UserList: React.SFC<UserListProps> = (props) => {
-  const { users } = props;
+  const { users, isSearching } = props;
 
-  return (
+  return isSearching ?
+  (
+    <div>
+      <Loader
+        active={true}
+        inline={'centered'}
+        size={'medium'}
+       >
+        Loading...
+      </Loader>
+    </div>
+  ) :
+  (
     <Card.Group data-test={'users'}>
       {users.map((user) =>
         <Card
