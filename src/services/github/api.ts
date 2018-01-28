@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { removeTrailingSlash } from 'utils/urlHandler';
+import { fullTrim, removeTrailingSlash } from 'utils/stringHandler';
 import { Member } from './models/Member';
 import { User } from './models/User';
 
@@ -18,8 +18,8 @@ export class GitHubApi {
 
   constructor(config?: ApiConfig) {
     const mergedConfig = {
-      ...config,
       ...this.DAFAULT_API_CONFIG,
+      ...config,
     };
     this.API_CONFIG = {
       ...mergedConfig,
@@ -50,19 +50,20 @@ export class GitHubApi {
   public searchUsers = async(
     query: string,
   ) => {
-    const escapedQuery = encodeURIComponent(query);
+    const escapedQuery = encodeURIComponent(fullTrim(query));
     const instance = axios.create(this.API_CONFIG);
 
     try {
-      const response = await instance.get(`/search/users?q=${escapedQuery}`);
-
+      const response = await instance.get(
+        `/search/users?q=${escapedQuery}`,
+      );
       if (response.status !== 200) {
         throw new Error('Server Error');
       }
-
       const users: User[] = response.data.items;
 
       return users;
+
     } catch (err) {
       throw err;
     }
