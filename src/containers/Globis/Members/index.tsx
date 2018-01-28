@@ -11,7 +11,10 @@ const mapStateToProps = (state: State) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<State>) => (
-  bindActionCreators({ loadMembers }, dispatch)
+  bindActionCreators(
+    { loadMembers },
+    dispatch,
+  )
 );
 
 export default compose<any, any>(

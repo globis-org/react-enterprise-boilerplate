@@ -7,9 +7,7 @@ import pages from 'pages';
 
 type HomeProps = {} & InjectedTranslateProps;
 
-const Home: React.SFC<HomeProps> = (
-  { t },
-) => (
+const Home: React.SFC<HomeProps> = ({ t }) => (
   <>
     <ul>
       <li>
