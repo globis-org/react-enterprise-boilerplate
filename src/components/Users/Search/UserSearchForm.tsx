@@ -50,7 +50,7 @@ const InnerForm: React.SFC<InnerFormProps> = (
   </form>
 );
 
-const UserSearchForm = compose(
+const UserSearchForm = compose<any, any>(
   withFormik<Props, Values>({
     mapPropsToValues: (props: Props) => ({
       login: props.login || '',
