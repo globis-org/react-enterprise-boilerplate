@@ -14,7 +14,7 @@ interface Values extends FormikValues {
 
 interface Props {
   login: string;
-  onSubmit: (login: string) => any;
+  searchUsers: (login: string) => any;
 }
 
 type InnerFormProps = InjectedFormikProps<Props, Values> & InjectedTranslateProps;
@@ -55,7 +55,7 @@ const UserSearchForm = compose<any, any>(
     mapPropsToValues: (props: Props) => ({
       login: props.login || '',
       onSubmit:
-        props.onSubmit ? props.onSubmit : () => {},
+        props.searchUsers ? props.searchUsers : () => {},
     }),
     validationSchema: Yup.object().shape({
       login: Yup.string()
