@@ -14,6 +14,7 @@ interface Values extends FormikValues {
 
 interface Props {
   query: string;
+  isSearching: boolean;
   onSubmit: (query: string) => any;
 }
 
@@ -24,7 +25,7 @@ const InnerForm: React.SFC<InnerFormProps> = ({
   errors,
   handleChange,
   handleSubmit,
-  isSubmitting,
+  isSearching,
   touched,
   values,
 }) => (
@@ -43,7 +44,7 @@ const InnerForm: React.SFC<InnerFormProps> = ({
     />
     <Button
       type={'submit'}
-      disabled={isSubmitting}
+      disabled={isSearching}
       primary={true}
       data-test={'exec-search'}
     >
@@ -68,9 +69,8 @@ const UserSearchForm = compose<any, any>(
         .required(i18n.t('ui.warning.required')),
       },
     ),
-    handleSubmit: (values, { props, setSubmitting }) => {
+    handleSubmit: (values, { props }) => {
       props.onSubmit(values.query);
-      setSubmitting(false);
     },
   }),
   translate(),

@@ -5,6 +5,10 @@ import { searchUsers } from 'actions/github';
 import UserSearchForm from 'components/Users/Search/UserSearchForm';
 import { State } from 'reducers';
 
+const mapStateToProps = (state: State) => ({
+  isSearching: state.github.usersSearchStatus === 'searching',
+});
+
 const mapDispatchToProps = (dispatch: Dispatch<State>) => (
   bindActionCreators(
     { onSubmit: (query) => searchUsers.started({ query }) },
@@ -12,4 +16,4 @@ const mapDispatchToProps = (dispatch: Dispatch<State>) => (
   )
 );
 
-export default connect<any>(null, mapDispatchToProps)(UserSearchForm);
+export default connect(mapStateToProps, mapDispatchToProps)(UserSearchForm);
