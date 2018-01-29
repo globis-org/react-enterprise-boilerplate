@@ -23,9 +23,14 @@
     "suppressImplicitAnyIndexErrors": true,
     "target": "es5"
   },
+  "include": [
+    "./node_modules/cypress/types/index.d.ts",
+    "cypress/*/*.ts",
+    "src"
+  ],
   "exclude": [
     "build",
-    "node_modules",
+    // "node_modules",
     "scripts",
     "jest",
     "src/setupTests.ts"
