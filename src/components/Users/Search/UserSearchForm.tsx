@@ -58,11 +58,7 @@ const InnerForm: React.SFC<InnerFormProps> = ({
 
 const UserSearchForm = compose<any, any>(
   withFormik<Props, Values>({
-    mapPropsToValues: (props: Props) => ({
-      query: props.query || '',
-      onSubmit:
-        props.onSubmit ? props.onSubmit : () => {},
-    }),
+    mapPropsToValues: ({ query = '' }) => ({ query }),
     validationSchema: Yup.object().shape({
       query: Yup.string()
         .max(
@@ -72,8 +68,8 @@ const UserSearchForm = compose<any, any>(
         .required(i18n.t('ui.warning.required')),
       },
     ),
-    handleSubmit: (values, { setSubmitting }) => {
-      values.onSubmit(values.query);
+    handleSubmit: (values, { props, setSubmitting }) => {
+      props.onSubmit(values.query);
       setSubmitting(false);
     },
   }),
