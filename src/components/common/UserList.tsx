@@ -5,14 +5,14 @@ import { User } from 'services/github';
 
 export interface UserListProps {
   users: User[];
-  isSearching?: boolean;
+  isLoading?: boolean;
 }
 
 const UserList: React.SFC<UserListProps> = ({
   users,
-  isSearching,
+  isLoading,
 }) => {
-  return isSearching ?
+  return isLoading ?
   (
     <Loader
       active={true}
