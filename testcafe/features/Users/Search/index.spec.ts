@@ -11,7 +11,7 @@ test('Check the form validations', async t => {
     .expect(Selector(dt('error-message')).exists).ok(
       'Cannot search with empty string',
     )
-    .typeText(Selector(dt('login-name')), 'ABCDEFGHIJKLMNOPQ')
+    .typeText(Selector(dt('query-text')), 'ABCDEFGHIJKLMNOPQ')
     .expect(Selector(dt('error-message')).innerText).contains(
       '16',
       'Cannot search with 17 characters',
@@ -20,7 +20,7 @@ test('Check the form validations', async t => {
 
 test('Does search works normally?', async t => {
   await t
-    .typeText(Selector(dt('login-name')), 'yuka')
+    .typeText(Selector(dt('query-text')), 'yuka')
     .click(Selector(dt('exec-search')))
     .expect(Selector(dt('user-card')).count).gte(
       30,

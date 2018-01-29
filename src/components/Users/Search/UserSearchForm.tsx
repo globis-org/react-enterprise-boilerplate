@@ -9,43 +9,49 @@ import i18n from '../../../i18n';
 import './UserSearchForm.css';
 
 interface Values extends FormikValues {
-  login: string;
+  query: string;
 }
 
 interface Props {
-  login: string;
-  onSubmit: (login: string) => any;
+  query: string;
+  onSubmit: (query: string) => any;
 }
 
 type InnerFormProps = InjectedFormikProps<Props, Values> & InjectedTranslateProps;
 
-const InnerForm: React.SFC<InnerFormProps> = (
-  props,
-) => (
+const InnerForm: React.SFC<InnerFormProps> = ({
+  t,
+  errors,
+  handleChange,
+  handleSubmit,
+  isSubmitting,
+  touched,
+  values,
+}) => (
   <form
     className={'UserSearchForm'}
-    onSubmit={props.handleSubmit}
+    onSubmit={handleSubmit}
   >
     <Input
-      id={'login'}
-      placeholder={props.t('ui.label.username')}
+      id={'query'}
+      placeholder={t('ui.label.username')}
       type={'text'}
-      onChange={props.handleChange}
+      onChange={handleChange}
       size={'medium'}
-      value={props.values.login}
-      data-test={'login-name'}
+      value={values.query}
+      data-test={'query-text'}
     />
     <Button
       type={'submit'}
-      disabled={props.isSubmitting}
+      disabled={isSubmitting}
       primary={true}
       data-test={'exec-search'}
     >
-      {props.t('ui.label.search')}
+      {t('ui.label.search')}
     </Button>
-    {props.touched.login && props.errors.login &&
+    {touched.query && errors.query &&
     <Message error={true} data-test={'error-message'}>
-      {props.errors.login}
+      {errors.query}
     </Message>}
   </form>
 );
@@ -53,12 +59,12 @@ const InnerForm: React.SFC<InnerFormProps> = (
 const UserSearchForm = compose<any, any>(
   withFormik<Props, Values>({
     mapPropsToValues: (props: Props) => ({
-      login: props.login || '',
+      query: props.query || '',
       onSubmit:
         props.onSubmit ? props.onSubmit : () => {},
     }),
     validationSchema: Yup.object().shape({
-      login: Yup.string()
+      query: Yup.string()
         .max(
           16,
           i18n.t('ui.warning.maxlength', { length: 16 }),
@@ -67,7 +73,7 @@ const UserSearchForm = compose<any, any>(
       },
     ),
     handleSubmit: (values, { setSubmitting }) => {
-      values.onSubmit(values.login);
+      values.onSubmit(values.query);
       setSubmitting(false);
     },
   }),

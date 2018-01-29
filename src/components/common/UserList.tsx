@@ -8,20 +8,19 @@ export interface UserListProps {
   isSearching?: boolean;
 }
 
-const UserList: React.SFC<UserListProps> = (props) => {
-  const { users, isSearching } = props;
-
+const UserList: React.SFC<UserListProps> = ({
+  users,
+  isSearching,
+}) => {
   return isSearching ?
   (
-    <div>
-      <Loader
-        active={true}
-        inline={'centered'}
-        size={'medium'}
-       >
-        Loading...
-      </Loader>
-    </div>
+    <Loader
+      active={true}
+      inline={'centered'}
+      size={'medium'}
+      >
+      Loading...
+    </Loader>
   ) :
   (
     <Card.Group data-test={'users'}>
