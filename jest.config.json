@@ -25,7 +25,8 @@
   },
   "testPathIgnorePatterns": [
     "/node_modules/",
-    "/scripts/"
+    "/scripts/",
+    "/testcafe/"
   ],
   "testURL": "http://localhost",
   "transform": {
